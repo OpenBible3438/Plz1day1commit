@@ -36,19 +36,19 @@ SELECT emp_name
 FROM temp
 WHERE nvl(hobby, '등산') = '등산';
 
-/* ALLAS */
+/* ALIAS */
 select emp_id 사번, emp_name as 이름 from temp;
 -- 다른 두 테이블에 같은 컬럼명을 가진 컬럼이 있을 경우
 SELECT emp_id, A.dept_code, dept_name
 FROM temp A , TDEPT B 
 WHERE A.DEPT_CODE = B.DEPT_CODE ;
 /*
- * 반드시 ALLAS를 사용하는 경우
+ * 반드시 ALIAS를 사용하는 경우
  * 
  * 셀프조인에서 자기 자신의 테이블과 조인이 일어나는 경우 모든 컬럼이 중복되게 된다.
- * 이 때 컬럼 앞에 테이블명을 명시해줘야 하는데 이 때 테이블명에 ALLAS를 사용해야 된다.
+ * 이 때 컬럼 앞에 테이블명을 명시해줘야 하는데 이 때 테이블명에 ALIAS를 사용해야 된다.
  * 
- * ROWNUM을 사용하거나 TREE 구조 전개시 LEVEL값을 사용하는 경우 커럼 ALLAS를 사용한다. 
+ * ROWNUM을 사용하거나 TREE 구조 전개시 LEVEL값을 사용하는 경우 커럼 ALIAS를 사용한다. 
  */
 --EX) 사원과 자신이 속한 부서의 부서장을 읽어내는 SQL
 SELECT A.EMP_ID, A.EMP_NAME, B.BOSS_ID, C.EMP_NAME

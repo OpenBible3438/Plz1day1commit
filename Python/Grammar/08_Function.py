@@ -49,6 +49,7 @@ print(a,b,c,d)
 람다 표현식
 이름없는 함수.
 특정한 기능을 수행하는 함수를 한 줄에 작성할 수 있어서 함수를 간단하게 만듦.
+lambda 인자 : 표현식
 """
 def add(a,b):
     return a + b
@@ -56,3 +57,22 @@ def add(a,b):
 print(add(1,2))
 # 람다 표현식으로 구현한 add()
 print((lambda a, b: a+b)(4, 5)) # print 함수 안의 내용이 add() 기능을 함.
+
+# 튜플 형태의 데이터를 가진 리스트
+# 이름, 점수
+# 학생을 점수순으로 오름차순 정렬하기
+array = [('홍길동', 50), ('이순신', 32), ('아무개',74)]
+
+def my_key(x):
+    return x[1]
+# my_key()는 두번째 원소 값을 반환한다. sorted는 key 속성을 기준으로 정렬한다
+print(sorted(array, key=my_key)) 
+print(sorted(array, key=lambda x:x[1]))
+
+# 여러 개의 리스트에 적용
+list1 = [1,2,3,4,5]
+list2 = [6,7,8,9,10]
+
+# map()은 원소 각각 함수를 적용시킬 때 사용함.
+result = map(lambda a,b:a+b, list1, list2) # => 각 리스트의 같은 자리 원소끼리 더함
+print(list(result))

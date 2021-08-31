@@ -107,3 +107,135 @@ FROM TEMP A, EMP_LEVEL B
 WHERE A.BIRTH_DATE BETWEEN ADD_MONTHS('20010101', -1*TO_AGE*12) 
                        AND ADD_MONTHS('20010101', -1*FROM_AGE*12)
   AND B.LEV = '과장' ; 
+
+--Q TEMP와 EMP_LEVEL을 이용해 EMP_LEVEL의 과장 직급의 연봉 상한/하한 범위 내에 드는 직원의 사번,성명,직급,salary 읽기
+SELECT emp_id, emp_name, A.lev, salary
+FROM temp A, emp_level B
+WHERE B.lev = '과장'
+AND SALARY BETWEEN B.FROM_SAL AND B.TO_SAL ;
+
+-- OUTER JOIN
+/* 조인하는 여러 테이블에서 한 쪽에는 데이터가 있고, 한 쪽에는 데이터가 없는 경우,
+ * 데이터가 있는 쪽 테이블의 내용을 모두 출력하는 것. => 조건에 맞지 않아도 해당하는 행을 출력
+ * 
+ * SELECT COLUMN1, COLUMN2, ...
+ *   FROM TABLE1, TABLE2, ...
+ *  WHERE TABLE1.COLUMNn = TABLE2.COLUMNn(+)
+ * 위와 같은 상황에서 기준 되는 테이블은 TABLE1 
+ * 연산자 (+)는 NULL열이 작성되어야 하는 쪽에 붙는다.
+ */
+-- 동일한 QUERY에 OUTER 기호가 붙는 경우와 아닌 경우 비교
+-- 일반 조인
+SELECT A.EMP_ID, B.EMP_ID
+  FROM TEMP A, TCOM B
+ WHERE B.WORK_YEAR = '2001'
+   AND B.EMP_ID = A.EMP_ID ;
+-- OUTER JOIN
+SELECT A.EMP_ID, B.EMP_ID 
+  FROM TEMP A, TCOM B 
+ WHERE B.WORK_YEAR(+) = '2001'
+  AND B.EMP_ID(+) = A.EMP_ID;
+
+--Q 각 사번의 성명, 이름, SALARY, 연봉하한금액, 연봉상한금액을 보고자한다.
+--  TEMP와 EMP_LEVEL을 조인하여 결과를 보여주되, 연봉의 상하한이 등록되어 있지 않는 '수습'사원은 성명,이름,SALARY까지 나오게 출력
+SELECT * FROM TEMP t ;
+SELECT * FROM EMP_LEVEL el ;
+SELECT B.EMP_ID, B.EMP_NAME, B.SALARY, A.FROM_SAL, A.TO_SAL
+  FROM EMP_LEVEL A, TEMP B
+ WHERE B.LEV = A.LEV(+); --EMP_LEVEL에는 '수습'에 대한 데이터가 없기 때문에 NULL열 발생.
+
+-- JOINING TABLE INSELF 같은 테이블을 다른 테이블처럼 인식하여 JOIN 반드시 ALIAS를 사용한다.
+-- TDEPT 테이블에 자신의 상위 부서 정보를 관리하고 있다. 이 테이블을 이용하여 부서코드, 부서명, 상위부서코드, 상위부서명을 읽어오기
+SELECT A.DEPT_CODE 부서코드, A.DEPT_NAME 부서명, B.DEPT_CODE 상위부서코드, B.DEPT_NAME 상위부서명
+  FROM TDEPT A, TDEPT B 
+ WHERE B.DEPT_CODE = A.PARENT_DEPT ;
+--Q TEMP 자료를 이용해 NON-EQUI JOIN이면서 SELF JOIN이고 OUTER JOIN인 쿼리 작성
+--  사번, 성명, 생일, 자신보다 생일이 빠른 사람의 수를 읽어와 자신보다 생일이 빠른 사람의 수 순서로 정렬하는 쿼리
+SELECT A.EMP_ID 사번, A.EMP_NAME 성명, A.BIRTH_DATE 생일, COUNT(B.BIRTH_DATE) 생일빠른사람수 
+  FROM TEMP A, TEMP B
+ WHERE B.BIRTH_DATE(+) < A.BIRTH_DATE 
+GROUP BY A.EMP_ID, A.EMP_NAME, A.BIRTH_DATE 
+ORDER BY COUNT(B.BIRTH_DATE) ;
+--Q TEMP와 TDEPT를 이용하여 다음 컬럼을 보여주는 SQL을 만들어보자.
+--  상위부서가 'CA0001'인 부서에 소속된 직원을
+--  1.사번 2.성명 3.부서코드 4.부서명 5.상위부서코드 6.상위부서명 7.상위부서장코드 8.상위부서장성명 순으로 보여준다.
+SELECT A.EMP_ID, B.DEPT_CODE, B.DEPT_NAME, C.DEPT_CODE, C.DEPT_NAME, D.EMP_ID, D.EMP_NAME
+  FROM TEMP A, TDEPT B, TDEPT C, TEMP D
+ WHERE B.DEPT_CODE = A.DEPT_CODE 
+   AND C.DEPT_CODE = B.PARENT_DEPT 
+   AND C.DEPT_CODE = 'CA0001'
+   AND D.EMP_ID = C.BOSS_ID ;
+
+-- 서브쿼리(SUB QUERY)
+-- SELECT한 결과를 조건비교에 사용하거나 UPDATE, INSERT에 사용할 때 이르는 말.
+
+-- SINGLE ROW 서브쿼리 : 가장 일반적이고 단순한 형태. SELECT 결과로 나오는 행의 수가 단 한 행이며, 이 중 한 컬럼을 사용
+-- TEMP에서 연봉이 가장 많은 직원의 ROW를 찾아서 이 금액과 동일한 금액을 받는 직원의 사변과 성명 보여주기
+SELECT EMP_ID, EMP_NAME
+  FROM TEMP
+ WHERE SALARY = ( SELECT MAX(SALARY) FROM TEMP ) ;
+-- TEMP의 자료를 이용해 SALARY의 평균을 구하고 이보다 큰 금액을 받는 직원의 사번과 성명, 연봉
+SELECT EMP_ID, EMP_NAME, SALARY
+  FROM TEMP
+ WHERE SALARY > ( SELECT AVG(SALARY) FROM TEMP ) ;
+
+-- MULTI ROW 서브쿼리
+-- SINGLE ROW와 달리 서브쿼리의 결과 행이 한 행 이상이 될 수 있는 경우를 의미하고 IN, ANY, ALL, EXISTS등의 연산시에 가능
+-- TEMP의 직원 중 인천에 근무하는 지원의 사번과 성명을 읽어오기
+SELECT EMP_ID, EMP_NAME
+  FROM TEMP
+ WHERE DEPT_CODE IN ( SELECT DEPT_CODE
+                        FROM TDEPT
+                       WHERE AREA = '인천' );
+
+--Q TCOM에 연봉 외에 COMMISSION을 받는 직원의 사번이 보관되어 있다. 
+--  이 정보를 SUB QUERY로 SELECT하여 부서 명칭별로 COMMISSION을 받는 인원수를 세는 문장
+SELECT B.DEPT_NAME, COUNT(*) 
+  FROM TEMP A, TDEPT B
+ WHERE B.DEPT_CODE = A.DEPT_CODE
+   AND A.EMP_ID IN (SELECT EMP_ID FROM TCOM)
+GROUP BY B.DEPT_NAME ; 
+
+-- MULTI COLUMN 서브쿼리. 서브쿼리에서 결과로 나오는 행들이 한 컬럼이 아닌 두 개 이상을 가지는 경우
+-- 보통 PK컬럼이 두 개 이상인 경우에 KEY값을 한번에 묶어서 비교하기 위해 자주 사용됨.
+-- TDEPT에서 부서코드와 BOSS_ID를 읽어서, 이 두 개의 컬럼이 TEMP의 부서코드와 사번에 일치하는 사람의 사번과 성명 읽어오기
+SELECT EMP_ID, EMP_NAME 
+  FROM TEMP
+ WHERE (DEPT_CODE, EMP_ID) IN 
+       (SELECT DEPT_CODE, BOSS_ID
+          FROM TDEPT); 
+--Q TEMP에서 부서별 최고 연봉금액을 읽어서 해당 부서와 최고 연봉금액이 동시에 일치하는 사원의 사번,성명,연봉 읽기
+SELECT * FROM TEMP ;
+SELECT EMP_ID, EMP_NAME, SALARY
+  FROM TEMP
+ WHERE (DEPT_CODE, SALARY) IN
+       (SELECT DEPT_CODE, MAX(SALARY) 
+          FROM TEMP
+        GROUP BY DEPT_CODE);
+      
+-- CORRELATED 서브쿼리
+/* InnerQuery에서 OuterQuery의 어떤 컬럼값을 사용하는 경우를 correlated 서브쿼리라고 한다.       
+ * InnerQuery(흔히 SUB QUERY)와 OuterQuery(흔히 MAIN QUERY)가 서로 단순히 연관관계가 있는 것이 아니고 서로 값을 주고 받는 연관관계가 성립한다.
+ * 일반적인 서브쿼리는 SUBQUERY의 겨로가를 MAINQUERY가 이용한다.
+ * CORRELATED 서브쿼리는 SUBQUERY가 MAINQUERY의 값을 이용하고, 그렇게 구해진 SUB QUERY의 값을 다시 MAIN QUERY가 이용한다.
+ */
+-- 직원 중 자신의 연봉이 자신과 같은 LEV에 해당하는 직원의 평균 SALARY보다 많은 경우에 이 사원의 사번과 성명 읽어오기
+SELECT EMP_ID, EMP_NAME
+  FROM TEMP A
+ WHERE SALARY > ( SELECT AVG(SALARY)
+                    FROM TEMP B 
+                   WHERE B.LEV = A.LEV ) ; 
+-- TDEPT의 BOSS_ID를 UPDATE하는 문장이다.
+-- 해당 부서에 속하는 사원을 찾아서 이 중 사번이 가장 빠른 사람을 부서장으로 임명한다고 가정하고 결과를 TDEPT에 반영하는 UPDATE 문장
+UPDATE TDEPT A
+   SET A.BOSS_ID = (SELECT MIN(B.EMP_ID)
+                      FROM TEMP B
+                     WHERE B.DEPT_CODE = A.DEPT_CODE) ;
+/*
+ * UPDATE 기본 문법
+ * UPDATE table_name SET column_name1=변경값, column_name2=변경값 ... ;
+ */                   
+--Q TEMP 테이블의 각 사원별 연봉을 10%를 COMMISSION으로 하는 새로운 자료를 TCOM에 INSERT.
+--  이 때 WORK_YEAR는 '2002', BONUS_RATE=0.1이 된다.
+INSERT INTO TCOM (WORK_YEAR, EMP_ID, BONUS_RATE, COMM)
+	        SELECT '2002', EMP_ID, 0.1, SALARY*0.1 FROM TEMP ;

@@ -12,4 +12,5 @@ for i in range(C):
         if j > scoreAvg:
             student += 1
     studentAvg = student/scoreList[0] * 100
-    print(str(format(studentAvg, '.3f'))+'%')
+    # print(str(format(studentAvg, '.3f'))+'%')
+    print(format(studentAvg, '.3f')+'%')

@@ -10,13 +10,13 @@ def d(n):
         n = n // 10
     return num
 
-selfNumberList = [False for _ in range(10001)]
+selfNumberList = [True for _ in range(10001)]
 
 for i in range(1, 10001):
     notSelfNumber = d(i)
     if notSelfNumber <= 10000:
-        selfNumberList[notSelfNumber] = True
+        selfNumberList[notSelfNumber] = False
 
 for i in range(1, 10001):
-    if not selfNumberList[i]:
+    if selfNumberList[i]:
         print(i)

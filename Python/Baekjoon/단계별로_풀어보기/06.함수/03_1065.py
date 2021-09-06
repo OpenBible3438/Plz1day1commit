@@ -14,6 +14,7 @@ def is_hansu(n):
                 result = True
             else:
                 result = False
+                break
     return result
 
 N = int(input())

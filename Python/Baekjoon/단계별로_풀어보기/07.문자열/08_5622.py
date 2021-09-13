@@ -27,3 +27,7 @@ for i in word:
 	resultSec += returnSec(i)
 
 print(resultSec)
+
+"""
+다이얼 ver2
+"""

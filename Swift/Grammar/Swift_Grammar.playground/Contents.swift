@@ -38,3 +38,5 @@ title.1
 var httpError = (code:404, description:"not found") // 인덱스 번호로 구별하기 보단 설명을 쓰는게 보기 좋음
 httpError.code
 httpError.description
+
+// Optional

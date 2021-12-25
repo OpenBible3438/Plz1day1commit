@@ -30,6 +30,18 @@ if isTrue { // isTrue == true 와 같은 코드
     
 }
 
+// Optional
+// 값이 있을수도 없을수도 !
+var optionalStr : String?
+print(optionalStr) // nil(null) 상태
+
+optionalStr = "have value"
+print(optionalStr)
+
+
+// Optional Binding
+// Optional 변수의 값이 있는지 없는지 검사한 후 값을 대입
+
 // Tuple
 var title = ("제목1", "image1.png")
 title.0
@@ -39,4 +51,49 @@ var httpError = (code:404, description:"not found") // 인덱스 번호로 구�
 httpError.code
 httpError.description
 
-// Optional
+// Array Dictionary
+var cafe = ["스타벅스", "투썸플레이스", "이디야"]
+var menu = [
+    "아메리카노" : 4000,
+    "카페라떼" : 4500,
+    "자허블" : 5000
+]
+
+// 빈 Array Dictionary
+var nullArray : [String] = []
+var nullDic : [String : String] = [:]
+
+// 조건문 & 반복문
+var score = 70
+var grade = ""
+
+if score >= 90 && score <= 100 {
+    grade = "A"
+} else if score >= 80 {
+    grade = "B"
+} else if score >= 70 {
+    grade = "C"
+} else if score >= 60 {
+    grade = "D"
+} else {
+    grade = "F"
+}
+print(grade)
+
+for i in cafe {
+    print(i)
+}
+
+for (menuName, menuPrice) in menu{
+    print("\(menuName)의 가격은 \(menuPrice)원 입니다.")
+}
+
+for _ in 0..<5{
+    print("count")
+}
+
+var testNum = 0
+while testNum < 10{
+    print(testNum)
+    testNum += 1
+}

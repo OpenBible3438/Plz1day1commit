@@ -97,3 +97,7 @@ while testNum < 10{
     print(testNum)
     testNum += 1
 }
+
+var num:Int?
+var resultNum = (num ?? 0)
+print(resultNum)

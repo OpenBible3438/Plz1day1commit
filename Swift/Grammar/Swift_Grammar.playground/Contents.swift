@@ -101,3 +101,18 @@ while testNum < 10{
 var num:Int?
 var resultNum = (num ?? 0)
 print(resultNum)
+
+// guard
+// func 안에서 if문을 대신하여 사용할 수 있는 제어문
+// 보통 함수 제일 초입에 선언하여 다음 코드들을 실행할지에 대한 판단
+let guardTestNum : Int? = 20
+
+func guardTestFunc() {
+    guard let guardNum = guardTestNum else {
+        return
+    }
+    
+    print("guardNum : ",guardNum)
+}
+
+guardTestFunc()

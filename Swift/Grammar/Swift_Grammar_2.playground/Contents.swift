@@ -3,7 +3,7 @@ import UIKit
 /* 연산자 */
 
 /*
- 기본 연산자(Basic Operator)
+ 기본 연산자(Basic Operators)
  + - * / %
  */
 var a:Double = 20
@@ -31,3 +31,25 @@ if b2 % 2 == 0 {
 } else {
     print("홀수입니다.")
 }
+
+/*
+ 비교 연산자(Comparison Operators)
+ */
+
+a = 20
+b = 20
+
+a == b
+a != b
+a > b
+a < b
+a >= b
+a <= b
+
+if a > b {
+    
+} else {
+    
+}
+
+"\u{62}"

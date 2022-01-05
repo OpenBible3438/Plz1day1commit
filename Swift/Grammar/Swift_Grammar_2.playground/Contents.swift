@@ -52,4 +52,55 @@ if a > b {
     
 }
 
-"\u{62}"
+/* unicode */
+
+// 숫자만 입력받는 겨우
+let inputValue = "7"
+"\u{30}" // 0
+"\u{39}"
+
+if inputValue >= "\u{30}" && inputValue <= "\u{39}" {
+    print("숫자입니다")
+} else {
+    print("숫자가 아닙니다")
+}
+
+// 영어만 입력받는 경우
+"\u{41}" // A
+"\u{79}" // y
+// 16진수로 표현하기 때문에 79 다음은 7a(7 10)
+"\u{7a}" // z
+
+/* String */
+let myName = "open bible"
+
+for char in myName {
+    print(char)
+}
+
+let myName2 = "open\nbible"
+print(myName2)
+
+// 길게 쓸 때는 큰따옴표 세개 안에 넣기
+let myLongName =
+"""
+hello
+world
+open
+bible
+"""
+print(myLongName)
+
+let isOn = false
+isOn.description // 문자열이 아닌 값들을 문자열로 만들어줌.
+
+let descNumber = 1234
+descNumber.description
+// 직접적인 형변환
+String(descNumber)
+
+"descNumber is \(descNumber)" // 문자열 안에서 \() 사용하여 문자열 타입이 아닌 변수를 그대로 사용 가능
+
+let telNo = "1234-5678"
+var splitTelNo = telNo.split(separator: "-")
+print(splitTelNo[0] + splitTelNo[1])

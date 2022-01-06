@@ -1,5 +1,6 @@
 """
 벌집
+test
 """
 N = int(input())
 

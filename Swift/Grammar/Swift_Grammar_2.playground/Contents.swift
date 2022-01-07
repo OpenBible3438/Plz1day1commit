@@ -104,3 +104,22 @@ String(descNumber)
 let telNo = "1234-5678"
 var splitTelNo = telNo.split(separator: "-")
 print(splitTelNo[0] + splitTelNo[1])
+
+/*
+ Collection Type (집합)
+ - Array
+ - Set
+ - Dictionary
+ */
+
+// Array
+var testArray = Array<String>() // Array <> 안에 어떤 타입이 들어가는지 명시해주어야함 ! (type safe )
+var testArray2 = [String]() // 이런식으로 정의 가능
+
+// Array 값 추가
+var arrayName = [String]()
+arrayName.append("open")
+arrayName.append("bible")
+// 들어간 순서대로(0부터) index 번호에 자리를 잡음
+print(arrayName[0])
+print(arrayName[1])

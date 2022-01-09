@@ -118,8 +118,48 @@ var testArray2 = [String]() // 이런식으로 정의 가능
 
 // Array 값 추가
 var arrayName = [String]()
-arrayName.append("open")
-arrayName.append("bible")
+arrayName.append("baby")
+arrayName.append("coder")
 // 들어간 순서대로(0부터) index 번호에 자리를 잡음
 print(arrayName[0])
 print(arrayName[1])
+
+// 방어코드, 안전한 코딩 스타일
+let nameIndex = 1
+if arrayName.count > nameIndex {
+    arrayName[nameIndex]
+}
+
+// 추가하는 다른 방법
+arrayName.append(contentsOf: ["baby2", "coder2"])
+print(arrayName)
+
+arrayName = arrayName + ["baby3", "coder3"]
+print(arrayName)
+
+// Array 값 삭제
+//arrayName.remove(at: 3)
+//arrayName.removeAll()
+//arrayName.removeLast()
+//arrayName.removeFirst()
+
+// Array에 데이터 유무 확인
+if arrayName.count == 0 {
+    print("비어있는 Array")
+} else if arrayName.isEmpty {
+    print("비어있는 Array")
+}
+arrayName.isEmpty
+
+arrayName.insert("index 1 insert", at: 1)
+arrayName.insert("index 4 insert", at: 4)
+print(arrayName)
+
+// Array의 값 가져오기
+for data in arrayName {
+    print(data)
+}
+
+for (index, data) in arrayName.enumerated() {
+    print(index, data)
+}

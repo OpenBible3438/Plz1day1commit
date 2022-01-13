@@ -112,7 +112,8 @@ print(splitTelNo[0] + splitTelNo[1])
  - Dictionary
  */
 
-// Array
+/* Array */
+
 var testArray = Array<String>() // Array <> 안에 어떤 타입이 들어가는지 명시해주어야함 ! (type safe )
 var testArray2 = [String]() // 이런식으로 정의 가능
 
@@ -163,3 +164,35 @@ for data in arrayName {
 for (index, data) in arrayName.enumerated() {
     print(index, data)
 }
+
+/* Set */
+// Array는 순서(index)에 따라 값을 저장하지만 Set type은 순서가 없음
+var names = Set<String>()
+names.insert("baby")
+names.insert("coder")
+names.insert("baby") // 같은 값은 들어가지 않음
+
+// set 타입은 중복되는 값을 허용하지 않기 때문에 Array를 Set으로 형변환 하면 중복값 제거 가능
+var arrayNames = ["name1", "name2", "name2", "name2"]
+Set(arrayNames)
+print(Set(arrayNames))
+
+var names2: Set = ["name1", "name2", "name2", "name2"]
+
+// Set 연산
+var setTestNum1: Set = [1, 2, 3, 4, 5]
+var setTestNum2: Set = [3, 4, 5, 6, 7]
+
+// 합집합
+setTestNum1.union(setTestNum2)
+
+// 교집합
+setTestNum1.intersection(setTestNum2)
+
+// 합집합 - 교집합 (대칭차집합)
+setTestNum1.symmetricDifference(setTestNum2)
+
+// 여집합
+setTestNum1.subtracting(setTestNum2)
+
+

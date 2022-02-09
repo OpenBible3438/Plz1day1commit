@@ -212,3 +212,82 @@ cafeMenu.keys
 for dic in cafeMenu {
     print(dic)
 }
+
+/*
+ Control Flow
+ 흐름제어
+ */
+
+/* for */
+let alphabet = "abcdefg"
+
+for char in alphabet {
+    print(char)
+}
+
+let number = "123456789"
+for char in number {
+    print( ( Int(String(char)) ?? 0 ) * 10 ) // optional 때문에 값이 없는 경우 사용할 수 선언이 필요함(여기서는 값이 없는 경우 0으로 변환)
+}
+
+// Array
+let names = ["pyun", "sung", "kyong"]
+for name in names{
+    print(name + "님")
+}
+
+for name in 0..<names.count { // 0부터 names의 요소개수를 name에 할당
+    print(name)
+}
+
+// Dictionary
+let cafeMenu = ["아메리카노":1500, "아아":2000]
+for menu in cafeMenu {
+    print(menu.key + " - " + String(menu.value) + "원")
+}
+
+// range
+print("index in 0...5")
+for index in 0...5 { // 0부터 5까지 index가 할당
+    print(index)
+}
+
+print("index in 0..<5")
+for index in 0..<5 { // 0부터 5미만까지 index가 할당
+    print(index)
+}
+
+/* while */
+let a = 0
+/*
+while (a == 0) { // a == 0 이라는 조건이 false 일 때 까지 무한히 실행 => 무한루프
+    print("a == 0 true")
+}
+*/
+
+var b = 0
+while b < 10 {
+    b += 1
+    print("while문 실행 b : ", b)
+}
+
+/* switch */
+let c = "c"
+switch c { // 조건
+case "a", "b", "c": // 케이스가 조건에 맞으면 실행
+    print("a or b or c")
+default: // 케이스가 조건에 다 맞지 않으면 default 실행
+    print("other alphabet")
+}
+
+let d = 5
+switch d {
+case 1:
+    print("number is 1")
+case 2:
+    print("number is 2")
+case 3...5: // case 조건에는 범위 설정도 가능함
+    print("number 3~5")
+default:
+    print("unknown number")
+}

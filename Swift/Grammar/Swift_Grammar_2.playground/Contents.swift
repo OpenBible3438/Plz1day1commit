@@ -195,4 +195,20 @@ setTestNum1.symmetricDifference(setTestNum2)
 // 여집합
 setTestNum1.subtracting(setTestNum2)
 
+/* Dictionary */
+// 임의로 지정할 수 있는 Key와 Value로 짝을 이루며 순서가 없음
+//var cafeMenu = [String : Any]()
+var cafeMenu = [String : Int]()
 
+cafeMenu["아메리카노"] = 1500
+cafeMenu["아이스아메리카노"] = 2000
+cafeMenu["카페라떼"] = 2500
+
+var cafeMenu2 = ["아메리카노" : 1500, "아이스아메리카노" : 2000, "카페라떼" : 2500]
+
+// key 확인
+cafeMenu.keys
+
+for dic in cafeMenu {
+    print(dic)
+}

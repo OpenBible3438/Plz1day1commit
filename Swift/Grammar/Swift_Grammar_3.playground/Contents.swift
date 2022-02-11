@@ -67,3 +67,95 @@ if inputButtonType == "+" {
 } else if inputButtonType == "*" {
     displayCalc(result: multiply)
 }
+
+/*
+ Closure (클로저)
+ Function과 유사
+ */
+
+// function
+func myScore(a:Int) -> String {
+    return "\(a)점"
+}
+let score = myScore(a:40) // function을 호출해서 결과값을 받아옴.
+
+// closure
+// function에는 이름이 있지만 클로저는 이름이 없음
+let score2 = { (a:Int) -> String in
+    return "\(a)점"
+}
+// score2(20)
+
+// 클로저는 축약 / 생략
+// 코드가 길지 않고 위 score2처럼 리턴줄 한 줄만 있으면 리턴 명령어를 생략할 수 있음
+// 위 score2와 아래 score3는 같은 코드
+let score3 = { (a:Int) -> String in
+    "\(a)점"
+}
+
+// 리턴 부분의 내용으로 타입 추론이 가능하기 때문에 리턴 타입을 명시하지 않아도 됨. -> String 생략 가능함
+let score4 = { (a:Int) in
+    "\(a)점"
+}
+
+let score5 : (Int) -> String = { a in
+    "\(a)점"
+}
+score5(50)
+
+let score5_2 : (Int, Int) -> String = { (a, b) in
+    "\(a + b)점"
+}
+score5_2(10,20)
+
+// in 생략, 파라미터를 바로 사용
+// $0은 첫 번째 파라미터를 의미. $1 , $2 , ...
+// in을 생략하면 반드시 $ 사용해서 파라미터를 표시해줘야됨. in을 사용하는 문법에서는 $ 사용하면 안 됨.
+let score6 : (Int) -> String = {
+    "\($0)점"
+    //return "\($0)점"
+}
+score6(100)
+
+let score6_2 : (Int, Int, Int) -> String = {
+    "\($0 + $1 + $2)점"
+}
+score6_2(10, 20, 30)
+
+/* Closure 예제 */
+
+// 특정한 글자가 있는 것 찾기
+let names = ["apple", "air", "brown", "red", "ornge", "blue", "candy", "hobby"]
+
+// 찾는 함수 선언
+func someFind(find:String) -> [String] { // String으로 받아 array로 반환.
+    var newNames = [String]()
+    for name in names{
+        if name.contains(find) { // contains : 해당 글자를 찾아서 있으면 true를 반환해줌.
+            newNames.append(name)
+        }
+    }
+    return newNames
+}
+
+someFind(find: "y")
+
+// 찾는 글자의 첫 번째 글자만 해당되는 단어 찾는 기능을 추가하는 경우
+let containsSomeText : (String, String) -> Bool = { name, find in
+    if name.contains(find) {
+        return true
+    }
+    return false
+}
+
+let isStartSomeText : (String, String) -> Bool = { name, find in
+    // first로 첫 번째 글자를 찾고, description으로 String 타입으로 변환시켜줌.
+    if name.first?.description == find {
+        return true
+    }
+    return false
+}
+
+func find(condition:(String, String) -> Bool) -> [String] {
+    condition
+}

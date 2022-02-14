@@ -125,7 +125,7 @@ score6_2(10, 20, 30)
 /* Closure 예제 */
 
 // 특정한 글자가 있는 것 찾기
-let names = ["apple", "air", "brown", "red", "ornge", "blue", "candy", "hobby"]
+var names = ["apple", "air", "brown", "red", "orange", "blue", "candy", "hobby"]
 
 // 찾는 함수 선언
 func someFind(find:String) -> [String] { // String으로 받아 array로 반환.
@@ -156,6 +156,30 @@ let isStartSomeText : (String, String) -> Bool = { name, find in
     return false
 }
 
-func find(condition:(String, String) -> Bool) -> [String] {
-    condition
+func find(findString: String, condition:(String, String) -> Bool) -> [String] {
+    var newNames = [String]()
+    
+    for name in names {
+        if condition(name, findString) {
+            newNames.append(name)
+        }
+    }
+    return newNames
 }
+
+find(findString: "a", condition: containsSomeText) // findString 글자를 포함하는 거 찾기
+find(findString: "a", condition: isStartSomeText)  // findString 글자가 첫 번째에 오는 거 찾기
+// ======> find 함수는 그대로 두고, 파라미터로 오는 것(condition)을 클로저로 세부적인 기능 추가.
+
+names = ["Chris", "Alex", "Eva", "Barry", "Daniella"]
+
+// sort
+// throws : 에러핸들링. 에러 발생시에 대처 방법
+names.sort { (lhs, rhs) -> Bool in
+    return lhs < rhs
+}
+// 위 코드 생략 버전
+names.sort {
+    $0 < $1
+}
+names.sort(by: <)

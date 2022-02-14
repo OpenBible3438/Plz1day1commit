@@ -13,10 +13,11 @@ func testPlus(num1:Int, num2:Int) -> Int {
 }
 
 var sum = testPlus(num1: a, num2: b)
+var sum2 = testPlus(num1: 10, num2: 20)
 
 // 튜플 형태의 리턴값
 func plus2(num1:Int, num2:Int) -> (String, Int) {
-    return ("결과값은", num1 + num2)
+    return ("두 수를 더하면", num1 + num2)
 }
 var result = plus2(num1: a, num2: b)
 

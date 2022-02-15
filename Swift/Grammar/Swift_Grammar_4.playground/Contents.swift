@@ -6,90 +6,98 @@ import UIKit
  enum 타입분류
  */
 
-// 분류만 하는 경우
-enum BookType {
+enum Books {
+    case fiction
+    case comics
+    case magazine
+}
+
+// 타입 인스턴스화
+var myBook = Books.comics
+var myBook2: Books?
+
+/*
+func selBook(book: Books) {
+    
+    switch book {
+    case .fiction:
+        print("소설책입니다.")
+    case .comics:
+        print("만화책입니다.")
+    case .magazine:
+        print("잡지입니다.")
+    }
+    
+}
+*/
+
+// selBook(book: myBook)
+
+enum Books2 {
     case fiction(title: String, price: Int)
     case comics(title: String, price: Int)
     case magazine(title: String, price: Int)
-    case science(title: String, price: Int)
 }
 
-// enum에 기능 추가
-extension BookType {
-    var typeName: String {
-        // 변수명 : 타입
-        
+var bookList = [Books2]()
+
+func selBook(book: Books2) {
+    bookList.append(book)
+}
+
+selBook(book: .comics(title: "아이언맨", price: 15000))
+selBook(book: .magazine(title: "월간낚시", price: 20000))
+
+bookList
+
+// bookList에 담긴 것들 사용하기
+for item in bookList {
+    switch item{
+    case let .fiction(title, price):
+        print("제목 : ", title, "가격 : ", price, "분류 - 소설")
+    case let .comics(title, price):
+        print("제목 : ", title, "가격 : ", price, "분류 - 만화")
+    case let .magazine(title, price):
+        print("제목 : ", title, "가격 : ", price, "분류 - 잡지")
+    }
+}
+
+// 특정한 값만 사용하고 싶을 때,
+for item in bookList {
+    if case let Books2.magazine(title, price) = item {
+        print("잡지만 출력")
+        print("제목 : ", title, "가격 : ", price, "분류 - 잡지")
+    }
+}
+
+// 작성한 enum의 기능 추가
+extension Books2 {
+    var typeLocation: String {
         switch self {
         case .comics:
-            return "comics"
+            return "분류 - 만화 A1"
         case .fiction:
-            return "fiction"
+            return "분류 - 소설 B1"
         case .magazine:
-            return "magazine"
-        case .science:
-            return "science"
+            return "분류 - 잡지 C1"
         }
     }
 }
 
-var comicBookType = BookType.comics // comics type으로 지정함
-var whatBookType:BookType? // 기본 타입을 정하지 않는 경우
+print("")
 
-var books = [BookType]()
-func saveBook(book:BookType) {
-    books.append(book)
-}
-
-/*
-func loadBook(book: BookType) -> [BookType] {
-    var tempBooks = [BookType]()
-    
-    for item in books {
-        if item == book { // 파라미터로 받은 것과 books의 item이 같으면,
-            tempBooks.append(item)
-        }
-    }
-    return tempBooks
-}
-
-
-saveBook(book: .comics)
-saveBook(book: .fiction)
-saveBook(book: .magazine)
-saveBook(book: .magazine)
-*/
-
-saveBook(book: .comics(title: "comics1", price: 15000))
-saveBook(book: .comics(title: "comics2", price: 15000))
-saveBook(book: .comics(title: "comics3", price: 15000))
-
-saveBook(book: .fiction(title: "fiction1", price: 15000))
-saveBook(book: .fiction(title: "fiction2", price: 15000))
-saveBook(book: .fiction(title: "fiction3", price: 15000))
-
-for book in books {
-    
-    if case let BookType.comics(title, _) = book { // 사용하지 않는 건 _ 해야 경고문 안 뜸
-        //print("comics", title)
-        print(title, book.typeName)
-    }
-    
-    if case let BookType.fiction(title, _) = book { // 사용하지 않는 건 _ 해야 경고문 안 뜸
-        //print("comics", title)
-        print(title, book.typeName)
-    }
-    
-    /*
-    switch book {
-    case let .comics(title, price):
-        print(title, price)
+for item in bookList {
+    switch item{
     case let .fiction(title, price):
-        print(title, price)
-    default:
-        break
+        print("제목 : ", title, "가격 : ", price, item.typeLocation)
+    case let .comics(title, price):
+        print("제목 : ", title, "가격 : ", price, item.typeLocation)
+    case let .magazine(title, price):
+        print("제목 : ", title, "가격 : ", price, item.typeLocation)
     }
-     */
 }
+
+
 
 /*
  Class

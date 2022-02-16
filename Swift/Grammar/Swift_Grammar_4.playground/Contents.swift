@@ -103,18 +103,20 @@ for item in bookList {
  Class
  */
 
+// class 선언
 class MyInfo {
-    
-    // 생성할 때 만들어 줄 수 있는 값
+    // class 초기화
     init(gender: GenderType) {
         self.genderType = gender
     }
+    // Class 내부에는 변수, 함수, 열거형 등등 선언할 수 있음
     enum GenderType {
         case male
         case female
     }
-    var genderType: GenderType
-    //private var genderType: GenderType // 클래스 안에서만 접근
+    //var genderType = GenderType.male
+    // private로 변경
+    private var genderType:GenderType?
     
     var name = ""
     var age = 0
@@ -125,27 +127,60 @@ class MyInfo {
         }
         return false
     }
+    
 }
 
 // class 인스턴스화
-var myInfo = MyInfo(gender: .female) // init
-// genderType을 private으로 했으면 처음 init으로 생성하고 나서 재정의 불가능
-myInfo.genderType = .male
-myInfo.genderType
+var myInfo = MyInfo(gender: .female)
+
+// 접근할 수 없기 때문에 오류가 남
+// myInfo.genderType = .male
+
+// 클래스는 참조형.
 myInfo.age = 20
 
-// 참조(reference type)
 var myInfo2 = myInfo
 myInfo2.age
 myInfo2.age = 30
 
-var myInfo3 = myInfo2
-
-// 참조를 하게 되면 각각의 새로운 객체가 아님.
+// 30
 myInfo.age
-myInfo2.age
-myInfo3.age
 
-class myComputer {
+// 상속
+// ingeritance
+
+class SportsScore {
+    var teamAScore = 0
+    var teamBScore = 0
     
+    func displayScore() -> String {
+        return teamAScore.description + " : " + teamBScore.description
+    }
 }
+
+class Soccer : SportsScore {
+
+}
+
+class Baseball : SportsScore {
+
+}
+
+class Volleyball : SportsScore {
+
+}
+
+let soccerPlay = Soccer()
+soccerPlay.teamAScore = 1
+soccerPlay.teamBScore = 2
+soccerPlay.displayScore()
+
+let baseballPlay = Baseball()
+baseballPlay.teamAScore = 30
+baseballPlay.teamBScore = 35
+baseballPlay.displayScore()
+
+let volleyballPlay = Volleyball()
+volleyballPlay.teamAScore = 40
+volleyballPlay.teamBScore = 50
+volleyballPlay.displayScore()

@@ -146,41 +146,84 @@ myInfo2.age = 30
 // 30
 myInfo.age
 
-// 상속
+/* 상속 */
 // ingeritance
 
 class SportsScore {
     var teamAScore = 0
     var teamBScore = 0
     
+    // final 키워드를 입력하면 상속받고 수정 불가능
     func displayScore() -> String {
         return teamAScore.description + " : " + teamBScore.description
     }
 }
 
 class Soccer : SportsScore {
-
+    var half = "전반전"
+    override func displayScore() -> String {
+        return half+" "+teamAScore.description + " : " + teamBScore.description
+    }
 }
 
 class Baseball : SportsScore {
-
+    var round = 1
+    override func displayScore() -> String {
+        return round.description+"회차 "+teamAScore.description + " : " + teamBScore.description
+    }
 }
 
 class Volleyball : SportsScore {
-
+    var set = 1
+    override func displayScore() -> String {
+        return set.description+"세트 "+teamAScore.description + " : " + teamBScore.description
+    }
 }
 
 let soccerPlay = Soccer()
 soccerPlay.teamAScore = 1
 soccerPlay.teamBScore = 2
+soccerPlay.half = "후반전"
 soccerPlay.displayScore()
 
 let baseballPlay = Baseball()
-baseballPlay.teamAScore = 30
-baseballPlay.teamBScore = 35
+baseballPlay.teamAScore = 1
+baseballPlay.teamBScore = 1
+baseballPlay.round = 7
 baseballPlay.displayScore()
 
 let volleyballPlay = Volleyball()
-volleyballPlay.teamAScore = 40
-volleyballPlay.teamBScore = 50
+volleyballPlay.teamAScore = 10
+volleyballPlay.teamBScore = 11
+volleyballPlay.set = 3
 volleyballPlay.displayScore()
+
+/* Properties(property) */
+// 클래스, 구조체, 열거형에 있는 변수 및 속성들.
+class MyLaptop {
+    /*
+     프로퍼티의 종류
+     - stored property(저장 프로퍼티)
+     값이 저장되어 있거나 저장할 수 있는 프로퍼티
+     
+     - lazy stored property
+     용량이 큰 변수를 선언할 경우(여러장의 이미지 등등)
+     클래스를 인스턴스화하는 시점에 부화 걸릴 수 있음(오버헤드, cpu memory 과다 사용)
+     클래스가 인스턴스화 하면서 모든 변수들이 메모리에 올라가게 되는데,
+     이런 용량 큰 변수를 처음부터 모두 불러와서 바로 사용하지 않는 경우 lazy 키워드를 붙여서 작성한다.
+     인스턴스화 시점에 메모리에 올라가지 않고,
+     인스턴스화 후 실제 이 변수를 사용할 때 메모리에 올라가게 됨
+     */
+    let model = "MacBookPro"
+    var os = "Monterey"
+    var osVersion = "12.0.1"
+    let chip = "AppleM1Pro"
+    let memory = 16
+    let displaySize = 14
+}
+
+let macbook = MyLaptop()
+// stored property(저장 프로퍼티)
+// 값을 가져와서 사용할 수 있음
+macbook.osVersion = "12.0.2"
+print(macbook.model+", "+macbook.os+" ver "+macbook.osVersion)

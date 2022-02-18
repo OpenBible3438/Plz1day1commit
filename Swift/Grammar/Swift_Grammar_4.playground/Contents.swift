@@ -215,7 +215,7 @@ class MyLaptop {
      인스턴스화 후 실제 이 변수를 사용할 때 메모리에 올라가게 됨
      */
     let model = "MacBookPro"
-    var os = "Monterey"
+    lazy var os = "Monterey"
     var osVersion = "12.0.1"
     let chip = "AppleM1Pro"
     let memory = 16
@@ -227,3 +227,52 @@ let macbook = MyLaptop()
 // 값을 가져와서 사용할 수 있음
 macbook.osVersion = "12.0.2"
 print(macbook.model+", "+macbook.os+" ver "+macbook.osVersion)
+
+/*
+ - computed property(계산된 프로퍼티)
+ 특정한 값에 의해서 값이 결정되는 프로퍼티
+ */
+class MemberInfo {
+    var name = ""
+    var age = 0
+    
+    // coumputed property의 형태
+    var isAdult:Bool {
+        // 이 변수가 어떻게 만들어질 것인지 작성
+        // 외부에서 값을 정할 수 없음
+        // set 기능 생략이 가능하고 이 코드는 get 키워드가 생략된 경우
+        get{
+            if age > 19 {
+                return true
+            }
+            return false
+        }
+    }
+    
+    // coumputed property 예제
+    // 이메일을 받으면(get) 암호화된 값으로(set) 사용하는 경우
+    var tempEmail = "" // 받고 내보낼 임시적인 변수 필요함
+    var email: String {
+        set {
+            // 입력받은 값은 newValue 키워드로 축약 가능
+            tempEmail = newValue
+            tempEmail = newValue.hash.description
+        }
+        get {
+            return tempEmail
+        }
+    }
+}
+
+let member = MemberInfo()
+// member.isAdult = true
+
+member.age = 15
+member.isAdult // false 출력
+
+member.age = 30
+member.isAdult // true 출력
+
+// computed property get set
+member.email = "test@test.com"
+member.email

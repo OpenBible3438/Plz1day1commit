@@ -1,4 +1,5 @@
 import UIKit
+import Darwin
 
 /*
  Enumerations
@@ -276,3 +277,57 @@ member.isAdult // true 출력
 // computed property get set
 member.email = "test@test.com"
 member.email
+
+/*
+ Initializer
+ 생성자
+ 
+ init 키워드 사용
+ */
+
+class Myinfo2 {
+    
+    // 초기값 세팅을 안 하는 프로퍼티들은 init으로 값 설정이 필수
+    var name: String
+    var myId: String
+    var age = 0
+    var isAdult: Bool
+    
+    // designated initializer
+    // 클래스를 생성하는 시점에 값을 세팅하려는 것.
+    init(name: String, id: String) {
+        self.name = name
+        self.myId = id
+        self.isAdult = (age > 19) ? true : false // 삼항연산자. (이 값이 true? )? true여기실행 : false여기실행
+    }
+    
+    // 그냥 init은 초기값 세팅을 다 해줘야해서 여러개를 작성하게 되면 코드가 길어지고 복잡해짐
+    init(id: String) {
+        self.name = ""
+        self.myId = id
+        self.isAdult = (age > 19) ? true : false
+    }
+    
+    // convenience initializer
+    // 필수조건 - 다른 init을 반드시 실행.
+    // init 하나에 추가적인 기능은 convenience init으로 작성하면 훨씬 간결해짐.
+    convenience init() {
+        self.init(name: "", id: "") // 위에 작성했던 init을 실행함
+    }
+    
+
+    
+}
+
+// var myinfo2 = Myinfo2.init(name: "kim", id: "kim123") // .init 생략
+var myinfo2 = Myinfo2(name: "kim", id: "kim123")
+
+myinfo2.myId
+myinfo2.name
+
+struct MyConfig {
+    var conf: String
+}
+// var myCon = MyConfig.init(conf: "test") // 마찬가지로 .init 생략되어 있음.
+var myCon = MyConfig(conf: "test") // struct 코드작성할 때 초기값을 세팅하지 않아도 생성할 때 자동으로 init 생성
+

@@ -361,4 +361,31 @@ class Round {
 var game: Game? = Game()
 game = nil // 필요하지 않을 때 deinit(해제) 해주면 메모리 사용량을 늘릴 수 있음
 
+/*
+ Structure
+ 구조체
+ 
+ 형태는 class와 비슷하고 기능적으로 다른 점이 있음
+ - class는 참조형(레퍼런스 타입),
+    구조체는 value type. 값을 참조하지 않고 복제함
+ - 상속 안 됨
+ */
 
+struct SomeStruct {
+    var name = ""
+    func someFunc() {
+        
+    }
+}
+
+struct ImageType {
+    var type = ""
+}
+
+var imageType1 = ImageType()
+var imageType2 = imageType1 // 값을 참조하지 않고 복제 ! (참조형이 아님)
+imageType1.type = "jpg"
+imageType2.type = "png"
+imageType1.type
+imageType2.type
+// 연결되어 있는 구조가 아닐 때 class가 아닌 구조체를 사용

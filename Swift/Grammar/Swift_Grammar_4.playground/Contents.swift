@@ -331,3 +331,34 @@ struct MyConfig {
 // var myCon = MyConfig.init(conf: "test") // 마찬가지로 .init 생략되어 있음.
 var myCon = MyConfig(conf: "test") // struct 코드작성할 때 초기값을 세팅하지 않아도 생성할 때 자동으로 init 생성
 
+// Deinitialization
+// 해제 (메모리 해제)
+// 메모리 해제하는 것이 꼭 좋은 것은 아니기 때문에 필요한 경우에만 사용. 대부분 해제하지 않고 올린대로 사용하게 됨
+var a: Int? = 10 // a 변수에 optional int 10 메모리 올림
+a = nil // nil 주면서 메모리에서 해제됨
+
+class Game {
+    var score = 0
+    var name = ""
+    var round: Round? // Round에 대한 내용이 많아서 Game 클래스에 모두 만들지 않고, Round 클래스를 따로 만듦.
+    
+    // 생성할 때 호출되는 기능
+    init() {
+        print("Game init")
+    }
+    // 해제할 때 호출되는 기능
+    deinit {
+        print("Game Deinit")
+    }
+}
+
+class Round {
+    var name = ""
+    var lastRound = 10
+    var roundTime = 20
+}
+
+var game: Game? = Game()
+game = nil // 필요하지 않을 때 deinit(해제) 해주면 메모리 사용량을 늘릴 수 있음
+
+

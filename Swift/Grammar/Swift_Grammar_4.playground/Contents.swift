@@ -491,6 +491,121 @@ class InheritanceUserInfo {
     var age = 0
     
     func isAdult() -> Bool {
-        
+        if age > 19 {
+            return true
+        }
+        return false
     }
 }
+
+class InheritanceGuest: InheritanceUserInfo {
+    // override - 상속 받은 함수 그대로 사용하지 않고 재정의하여 사용
+    override func isAdult() -> Bool {
+        return true
+    }
+    
+    func present(){
+        name = "name1"
+        print(name)
+        
+        // 상속 받은 곳(부모 class)에 접근
+        print(super.name)
+        // 상속은 부모 클래스의 접근해서 그 요소를 사용하기 때문에 부모의 값도 바뀌게 됨
+        // => protocol과 다른 점
+        
+        // override 했기 때문에 부모와 다르게 출력
+        print(isAdult())
+        print(super.isAdult())
+    }
+}
+let inheGuest = InheritanceGuest()
+inheGuest.present()
+
+/*
+ Generic <내가 만드는 임의의 Type>
+ 로직을 반복해야 될 때 보통 func 함수를 선언하게 되는데
+ 타입을 여러가지로 쓰여야 되는 경우 사용
+ */
+
+// stack
+struct IntStack {
+    var items = [Int]()
+    
+    mutating func push(item: Int) {
+        items.append(item)
+    }
+    mutating func pop() -> Int? {
+        if items.isEmpty {
+            // 꺼낼 데이터가 없는 경우
+            return nil
+        }
+        return items.removeLast()
+    }
+}
+
+var myStack = IntStack()
+myStack.push(item: 1)
+myStack.push(item: 2)
+myStack.push(item: 3)
+// struct IntStack의 push는 Int타입만 넣을 수 있게 만들어서
+// myStack.push(item: "one") 같은 String 타입은 넣을 수 없음
+// => generic 구조로 가능하게 만들 수 있음
+
+myStack.pop()
+myStack.pop()
+myStack.pop()
+
+// generic stack
+// 여기서는 MyType이라는 임의의 타입으로 작성했지만,
+// 실제 코드를 실행할 때는 정확한 타입을 명시해줘야 함.
+struct GenericStack<MyType> {
+    var items = [MyType]()
+    
+    mutating func push(item: MyType) {
+        items.append(item)
+    }
+    mutating func pop() -> MyType? {
+        if items.isEmpty {
+            // 꺼낼 데이터가 없는 경우
+            return nil
+        }
+        return items.removeLast()
+    }
+}
+
+// String Type
+var myStack2 = GenericStack<String>()
+myStack2.push(item: "a")
+myStack2.pop()
+
+var myStack2_Int = GenericStack<Int>()
+myStack2_Int.push(item: 1)
+myStack2_Int.pop()
+
+// generic에 제한을 두어야 하는 경우
+struct GenericStack2<MyType> where MyType: Numeric {
+                    // Numeric - int, double, .. 숫자형들 가능
+                    // StringProtocol
+                    // Equatable
+    var items = [MyType]()
+    
+    mutating func push(item: MyType) {
+        items.append(item)
+    }
+    mutating func pop() -> MyType? {
+        if items.isEmpty {
+            // 꺼낼 데이터가 없는 경우
+            return nil
+        }
+        return items.removeLast()
+    }
+}
+
+/*
+ Higher order function
+ 고차함수
+ */
+let names = ["kim", "lee", "park", "choi", "pyun"]
+
+// Map
+// 데이터가 나열되어 있을 때 

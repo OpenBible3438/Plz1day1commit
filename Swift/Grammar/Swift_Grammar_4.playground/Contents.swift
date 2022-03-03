@@ -389,3 +389,52 @@ imageType2.type = "png"
 imageType1.type
 imageType2.type
 // 연결되어 있는 구조가 아닐 때 class가 아닌 구조체를 사용
+
+/*
+ Extension
+ 기능 확장
+ 
+ class, struct, enum, protocol 등등 대부분 모든 것에 사용가능
+ */
+
+// Int Type에 짝수, 홀수 판별 기능 추가
+extension Int { // 기본 내장된 Type에도 기능 추가할 수 있음
+    var oddOrEven: String {
+        if self % 2 == 0 {
+            return "짝수"
+        }
+        return "홀수"
+    }
+}
+3.oddOrEven
+4.oddOrEven
+
+// 앱에서 자주 쓰이는 색이 있는 경우
+// UIColor
+// mainColor1 = .....
+// mainColor2 = .....
+// subColor1 = .....
+extension UIColor {
+    var mainColor1: UIColor {
+        UIColor(red: 50/255, green: 70/255, blue: 120/255, alpha: 1)
+    }
+    
+    // UIColor.orange 같은 기본 변수들은 class 변수로 선언되어있음
+    class var mainColor2: UIColor {
+        UIColor(red: 40/255, green: 10/255, blue: 20/255, alpha: 1)
+    }
+    // 비슷하게 static
+    static var mainColor3: UIColor {
+        UIColor(red: 20/255, green: 90/255, blue: 90/255, alpha: 1)
+    }
+}
+var button = UIButton()
+// 일반 변수로 선언하면 UIColor 인스턴스화 필요
+button.titleLabel?.textColor = UIColor().mainColor1
+
+// class 변수로 선언하면 인스턴스화 필요없이 바로 사용
+button.titleLabel?.textColor = UIColor.mainColor2
+button.titleLabel?.textColor = .mainColor2
+
+// static 변수
+button.titleLabel?.textColor = .mainColor3

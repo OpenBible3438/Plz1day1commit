@@ -438,3 +438,59 @@ button.titleLabel?.textColor = .mainColor2
 
 // static 변수
 button.titleLabel?.textColor = .mainColor3
+
+/*
+ Protocol
+ 규격, 규약, 규칙, 청사진, 뼈대
+ 
+ 원하는 스타일을 규격화하여 원하는 곳에서 구현부 작성
+ */
+protocol UserInfo {
+    // get(필수), set 필요
+    // 구현 부분은 작성할 수 없고 선언만 가능함
+    var name: String { get set }
+    var age: Int { get set }
+    
+    func isAdult() -> Bool
+}
+
+class ProtocolMember: UserInfo {
+    // protocol을 갖게 되면 해당 protocol의 요소들을 필수적으로 가져옴
+    var name: String = ""
+    var age: Int = 0
+    func isAdult() -> Bool {
+        if age > 19 {
+            return true
+        }
+        return false
+    }
+}
+
+class ProtocolMember2: UserInfo {
+    var name: String
+    var age: Int
+    func isAdult() -> Bool {
+        if age > 19 {
+            return true
+        }
+        return false
+    }
+    
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+}
+
+/*
+ Inheritance
+ 상속
+ */
+class InheritanceUserInfo {
+    var name = ""
+    var age = 0
+    
+    func isAdult() -> Bool {
+        
+    }
+}

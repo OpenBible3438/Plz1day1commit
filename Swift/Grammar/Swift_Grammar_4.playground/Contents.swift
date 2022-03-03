@@ -1,5 +1,6 @@
 import UIKit
 import Darwin
+import Foundation
 
 /*
  Enumerations
@@ -608,4 +609,44 @@ struct GenericStack2<MyType> where MyType: Numeric {
 let names = ["kim", "lee", "park", "choi", "pyun"]
 
 // Map
-// 데이터가 나열되어 있을 때 
+let names2 = names.map { name in
+    name + "님"
+}
+let names2_2 = names.map {
+    $0 + "님"
+}
+
+let names3 = names.map { name in
+    name.count
+}
+
+let names4 = names.map { name in
+    name.count > 3
+}
+
+// Filter
+let filterName = names.filter{ (name) -> Bool in
+    name.count > 3
+}
+
+// Reduce 합치기
+let reduceName = names.reduce("시작") { (first, second) in
+    first + second
+}
+
+let reduceName2 = names.reduce("시작부") { $0 + $1 }
+reduceName2
+
+let reduceNumberArr = [1,2,3,4,5]
+let reduceNumber = reduceNumberArr.reduce(0){$0 + $1}
+
+// CompactMap nil, optional 값 없앰
+let compactArr = [1,2,3,4,5, nil, 6, nil, 8]
+let compactNum = compactArr.compactMap{ (num) in
+    return num
+}
+
+// Flatmap 모두 꺼내서 같은 depth로 나열
+let flatArr = [[1,2,3], [4,5,6]]
+let flatNum = flatArr.flatMap{$0}
+flatNum

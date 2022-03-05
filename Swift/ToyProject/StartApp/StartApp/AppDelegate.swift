@@ -5,6 +5,10 @@
 //  Created by 편성경 on 2022/03/05.
 //
 
+/*
+ App Life Cycle 관리하는 파일
+ */
+
 import UIKit
 
 @main
@@ -12,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
+    // App 시작점
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

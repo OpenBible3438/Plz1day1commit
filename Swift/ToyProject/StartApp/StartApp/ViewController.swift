@@ -48,11 +48,23 @@ class ViewController: UIViewController {
  DetailViewController처럼 간단한 것들은 같은 파일 안에 넣어도 됨
  */
 class DetailViewController2: UIViewController {
-
+    // viewController life cycle
+    // UIViewController를 상속받았기 때문에 사용할 수 있는 함수들
+    
+    // 화면에 올릴 준비가 됐을 때
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+    }
+    
+    // 화면에 나오기 직전
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    // 화면에 다 출력한 후
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
 }

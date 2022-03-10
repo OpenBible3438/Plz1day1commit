@@ -15,6 +15,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    // Segue로 연결되어 있는 것을 실행할 때 호출되는 함수
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mySegueDetail" {
+            //segue.destination as? Sege
+        }
+    }
 
     @IBAction func moveToDetail(_ sender: Any) {
         let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)

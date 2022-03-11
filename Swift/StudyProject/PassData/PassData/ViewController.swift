@@ -16,10 +16,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    // Segue로 연결되어 있는 것을 실행할 때 호출되는 함수
+    // Segue로 연결되어 있는 것(여기서는 data-segue 버튼)을 실행할 때 호출되는 함수
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mySegueDetail" {
-            //segue.destination as? Sege
+            // destination : segue 화살표료 연결된 목적지 접근
+            if let detailVC = segue.destination as? SegueDetailViewController {
+                detailVC.dataString = "abcd"
+            }
         }
     }
 

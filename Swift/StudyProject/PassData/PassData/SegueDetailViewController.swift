@@ -11,10 +11,12 @@ class SegueDetailViewController: UIViewController {
 
     @IBOutlet weak var dataLabel: UILabel!
     
+    var dataString = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        dataLabel.text = dataString
     }
 
 }

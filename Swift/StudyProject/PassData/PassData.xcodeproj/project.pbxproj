@@ -19,6 +19,10 @@
 		6502490127D6496400DCE969 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650248FF27D6496400DCE969 /* DetailViewController.swift */; };
 		6502490227D6496400DCE969 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6502490027D6496400DCE969 /* DetailViewController.xib */; };
 		652EB82127DA336700F6C967 /* SegueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EB82027DA336700F6C967 /* SegueDetailViewController.swift */; };
+		652EB82427DB6B2800F6C967 /* InstanceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EB82227DB6B2800F6C967 /* InstanceDetailViewController.swift */; };
+		652EB82527DB6B2800F6C967 /* InstanceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652EB82327DB6B2800F6C967 /* InstanceDetailViewController.xib */; };
+		652EB82827DB6FCB00F6C967 /* DelegateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EB82627DB6FCB00F6C967 /* DelegateDetailViewController.swift */; };
+		652EB82927DB6FCB00F6C967 /* DelegateDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652EB82727DB6FCB00F6C967 /* DelegateDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		650248FF27D6496400DCE969 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6502490027D6496400DCE969 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		652EB82027DA336700F6C967 /* SegueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueDetailViewController.swift; sourceTree = "<group>"; };
+		652EB82227DB6B2800F6C967 /* InstanceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceDetailViewController.swift; sourceTree = "<group>"; };
+		652EB82327DB6B2800F6C967 /* InstanceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstanceDetailViewController.xib; sourceTree = "<group>"; };
+		652EB82627DB6FCB00F6C967 /* DelegateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateDetailViewController.swift; sourceTree = "<group>"; };
+		652EB82727DB6FCB00F6C967 /* DelegateDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DelegateDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,10 @@
 				650248FF27D6496400DCE969 /* DetailViewController.swift */,
 				6502490027D6496400DCE969 /* DetailViewController.xib */,
 				652EB82027DA336700F6C967 /* SegueDetailViewController.swift */,
+				652EB82227DB6B2800F6C967 /* InstanceDetailViewController.swift */,
+				652EB82327DB6B2800F6C967 /* InstanceDetailViewController.xib */,
+				652EB82627DB6FCB00F6C967 /* DelegateDetailViewController.swift */,
+				652EB82727DB6FCB00F6C967 /* DelegateDetailViewController.xib */,
 			);
 			path = PassData;
 			sourceTree = "<group>";
@@ -240,9 +252,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				652EB82927DB6FCB00F6C967 /* DelegateDetailViewController.xib in Resources */,
 				650248DC27D6478B00DCE969 /* LaunchScreen.storyboard in Resources */,
 				650248D927D6478B00DCE969 /* Assets.xcassets in Resources */,
 				650248D727D6478A00DCE969 /* Main.storyboard in Resources */,
+				652EB82527DB6B2800F6C967 /* InstanceDetailViewController.xib in Resources */,
 				6502490227D6496400DCE969 /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,9 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				650248D427D6478A00DCE969 /* ViewController.swift in Sources */,
+				652EB82827DB6FCB00F6C967 /* DelegateDetailViewController.swift in Sources */,
 				650248D027D6478A00DCE969 /* AppDelegate.swift in Sources */,
 				652EB82127DA336700F6C967 /* SegueDetailViewController.swift in Sources */,
 				650248D227D6478A00DCE969 /* SceneDelegate.swift in Sources */,
+				652EB82427DB6B2800F6C967 /* InstanceDetailViewController.swift in Sources */,
 				6502490127D6496400DCE969 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

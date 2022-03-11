@@ -73,9 +73,25 @@ class ViewController: UIViewController {
         
         self.present(detailVC, animated: true, completion: nil)
     }
+    
+    /*
+     5. Closure
+     */
+    
+    @IBAction func moveToClosure(_ sender: Any) {
+        let detailVC = ClosureDetailViewController(nibName: "ClosureDetailViewController", bundle: nil)
+        
+        // 호출한 closure body 구현
+        detailVC.myClosure = { str in // 받는 파라미터 in 뒤에는 구현부
+            self.dataLebel.text = str
+        }
+        
+        self.present(detailVC, animated: true, completion: nil)
+    }
 }
 
 /*
+ 4-2.
  현재 이 ViewController는
  DelegateDetailViewControllerDelegate 프로토콜을 준수하겠다는 기능 추가 !
  클래스 상단에 적어도 ㄱㅊㄱㅊ

@@ -13,24 +13,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /*
-         6. Notification
-         */
-        
-        // 이름은 임의로 정함
-        let notification = Notification.Name("sendSomeString")
-        
-        // NotificationCenter - 앱 감지하는 기능
-        NotificationCenter.default.addObserver(self, selector: #selector(showSomeString), name: notificationName, object: nil)
-    }
-    
-    // 6. Notification 구현부
-    @objc func showSomeString(notifiation: Notification) {
-        // key-value key값 접근
-        if let str = notifiation.userInfo?["str"] as? String {
-            self.dataLabel.text = str
-        }
+        // Do any additional setup after loading the view.
     }
 
     @IBAction func moveToDetail(_ sender: Any) {
@@ -105,7 +88,6 @@ class ViewController: UIViewController {
         
         self.present(detailVC, animated: true, completion: nil)
     }
-    
 }
 
 /*

@@ -25,6 +25,8 @@
 		652EB82927DB6FCB00F6C967 /* DelegateDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652EB82727DB6FCB00F6C967 /* DelegateDetailViewController.xib */; };
 		652EB82C27DB762800F6C967 /* ClosureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652EB82A27DB762800F6C967 /* ClosureDetailViewController.swift */; };
 		652EB82D27DB762800F6C967 /* ClosureDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652EB82B27DB762800F6C967 /* ClosureDetailViewController.xib */; };
+		65E9CEC727E22369001A1243 /* NotificationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E9CEC527E22369001A1243 /* NotificationDetailViewController.swift */; };
+		65E9CEC827E22369001A1243 /* NotificationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E9CEC627E22369001A1243 /* NotificationDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		652EB82727DB6FCB00F6C967 /* DelegateDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DelegateDetailViewController.xib; sourceTree = "<group>"; };
 		652EB82A27DB762800F6C967 /* ClosureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureDetailViewController.swift; sourceTree = "<group>"; };
 		652EB82B27DB762800F6C967 /* ClosureDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosureDetailViewController.xib; sourceTree = "<group>"; };
+		65E9CEC527E22369001A1243 /* NotificationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailViewController.swift; sourceTree = "<group>"; };
+		65E9CEC627E22369001A1243 /* NotificationDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 				652EB82727DB6FCB00F6C967 /* DelegateDetailViewController.xib */,
 				652EB82A27DB762800F6C967 /* ClosureDetailViewController.swift */,
 				652EB82B27DB762800F6C967 /* ClosureDetailViewController.xib */,
+				65E9CEC527E22369001A1243 /* NotificationDetailViewController.swift */,
+				65E9CEC627E22369001A1243 /* NotificationDetailViewController.xib */,
 			);
 			path = PassData;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 				650248D927D6478B00DCE969 /* Assets.xcassets in Resources */,
 				650248D727D6478A00DCE969 /* Main.storyboard in Resources */,
 				652EB82527DB6B2800F6C967 /* InstanceDetailViewController.xib in Resources */,
+				65E9CEC827E22369001A1243 /* NotificationDetailViewController.xib in Resources */,
 				6502490227D6496400DCE969 /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +304,7 @@
 				650248D227D6478A00DCE969 /* SceneDelegate.swift in Sources */,
 				652EB82427DB6B2800F6C967 /* InstanceDetailViewController.swift in Sources */,
 				6502490127D6496400DCE969 /* DetailViewController.swift in Sources */,
+				65E9CEC727E22369001A1243 /* NotificationDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

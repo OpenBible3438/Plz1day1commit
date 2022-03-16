@@ -14,24 +14,67 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("app start !")
+        
         /*
-         6. Notification
+         6-1. Notification
+         */
+        let notificationName = Notification.Name("sendSomeString")
+        // "sendSomeString"라고 정한 이름이 호출되면 구현부 함수를 실행시킴 !
+        
+        // App의 동작을 감지하는 기능
+        // self - 작동되는 곳
+        // #selector - 특정한 function을 호출
+        NotificationCenter.default.addObserver(self, selector: #selector(showSomeString), name: notificationName, object: nil)
+        
+        // 같은 코드로 호출 또 가능
+        // NotificationCenter.default.addObserver(self, selector: #selector(showSomeString), name: notificationName, object: nil)
+        
+        /*
+         6-2. TextField 키보드 이벤트
+         */
+        // UIResponder.keyboardWillShowNotification - 키보드가 나오는 순간
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        // keyboardDidShowNotification - 키보드가 나오고 난 후
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        
+        /*
+         생성했던 Notification Observer가 필요없어지는 경우
+         NotificationCenter.default.removeObserver 사용하기
          */
         
-        // 이름은 임의로 정함
-        let notification = Notification.Name("sendSomeString")
-        
-        // NotificationCenter - 앱 감지하는 기능
-        NotificationCenter.default.addObserver(self, selector: #selector(showSomeString), name: notificationName, object: nil)
     }
     
-    // 6. Notification 구현부
-    @objc func showSomeString(notifiation: Notification) {
-        // key-value key값 접근
-        if let str = notifiation.userInfo?["str"] as? String {
-            self.dataLabel.text = str
+    /*
+     6-1.
+     Notification
+     호출함수(구현부)
+     */
+    @objc func showSomeString(notification: Notification) {
+        if let str = notification.userInfo?["str"] as? String {
+            // key value로 값을 가져올 수 있음.
+            self.dataLebel.text = str
         }
     }
+    
+    // 6 Notification 화면이동 함수
+    @IBAction func moveNoti(_ sender: Any) {
+        let detailVC = NotificationDetailViewController(nibName: "NotificationDetailViewController", bundle: nil)
+        self.present(detailVC, animated: true, completion: nil)
+    }
+    
+    /*
+     6-2.keyboardWillShowNotification
+     */
+    @objc func keyboardWillShow() {
+        print("will show")
+    }
+    
+    @objc func keyboardDidShow() {
+        print("did show")
+    }
+    
 
     @IBAction func moveToDetail(_ sender: Any) {
         let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)

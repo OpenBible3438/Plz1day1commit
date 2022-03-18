@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="roE-jR-ikk">
-                                <rect key="frame" x="173.5" y="349.5" width="67" height="197"/>
+                                <rect key="frame" x="173.5" y="308" width="67" height="280"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fa-wU-mwa">
                                         <rect key="frame" x="0.0" y="0.0" width="67" height="31"/>
@@ -40,6 +40,17 @@
                                         <rect key="frame" x="0.0" y="166" width="67" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="actino3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jSb-gT-0Qh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOY-fQ-qaH">
+                                        <rect key="frame" x="0.0" y="249" width="67" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="action4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B2a-gg-Qlm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

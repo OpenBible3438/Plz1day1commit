@@ -129,10 +129,20 @@ class ViewController: UIViewController {
          queue2, queue3가 각각 작업을 실행함
          */
         queue2.async(group: dispatchGroup) {
+            dispatchGroup.enter() // 작업 시작을 알림
             for index in 40..<50 {
                 Thread.sleep(forTimeInterval: 0.2)
                 print(index)
             }
+            dispatchGroup.leave() // 작업 종료를 알림
+            
+            /*
+             enter()와 leave()를 반드시 함께 사용해야 된다.
+             enter()는 있고 leave()가 없으면
+             Thread가 제대로 종료되지 않은 채
+             백그라운드에서 계속 돌고 있을 수 있음 !
+             */
+            
         }
         
         queue3.async(group: dispatchGroup) {
@@ -154,9 +164,123 @@ class ViewController: UIViewController {
             print("dispatchGroup.notify queue1,2,3 작업 종료")
         }
         
+    } // button2 action2
+    
+    @IBAction func actino3(_ sender: Any) {
         
-    }
+        print("action3() 실행")
+        
+        // 화면에 대한 요소를 변경하려면 MainThread
+        // MainThread는 계속 앱이 돌아가야 되기 때문에
+        // 아래와 같이 main.sync는 사용 불가능
+        /*
+        DispatchQueue.main.sync {
+            // code
+        }
+        */
+        
+        
+        let queue1 = DispatchQueue(label: "q1")
+        let queue2 = DispatchQueue(label: "q2")
+        
+        queue1.sync {
+            for index in 0..<10 {
+                Thread.sleep(forTimeInterval: 0.2)
+                print(index)
+            }
+        }
+        
+        queue2.sync {
+            for index in 10..<20 {
+                Thread.sleep(forTimeInterval: 0.2)
+                print(index)
+            }
+        }
+        
+        // Deadlock 발생하는 경우
+        // 상대 작업이 끝날 때까지 계속 기다리는 상태
+        /*
+        queue1.sync { // queue1-1
+            for index in 0..<10 {
+                Thread.sleep(forTimeInterval: 0.2)
+                print(index)
+            }
+            
+            queue1.sync { // queue1-2
+                for index in 10..<20 {
+                    Thread.sleep(forTimeInterval: 0.2)
+                    print(index)
+                }
+            }
+            
+        } // queue1-1의 작업이 끝나는 지점
+         */
+        /*
+         queue1 sync 작업 상태 안에
+         같은 queue1 sync 작업을 추가하게 되면
+         queue1-2는 1-1의 작업이 끝나고 나서 작업을 시작해야되는데
+         시작할 수 없는 상태, 계속 1-1의 작업 종료를 기다리는
+         deadlock 발생하게 됨
+         */
+        
+    } // button3 actino3
     
+    @IBAction func action4(_ sender: Any) {
+        
+        /*
+         우선순위 QOS
+         */
+        
+        let dispatchGroup = DispatchGroup()
+        
+        let queue1 = DispatchQueue(label: "q1")
+        let queue2 = DispatchQueue(label: "q2")
+        let queue3 = DispatchQueue(label: "q3")
+        
+        print("action4() 실행")
+        
+        /*
+         DispatchQoS 정의된 곳에 들어가보면
+         background,utility,default,userInitiated,userInteractive
+         순서대로 우선순위가 높은 것을 확인할 수 있음
+         unspecified은 잘 사용하지 않음
+         */
+        queue1.async(group: dispatchGroup, qos: .background) { // 가장 낮은 우선순위
+            dispatchGroup.enter()
+            print("qos: .background")
+            DispatchQueue.global().async {
+                for index in 0..<10 {
+                    print(index)
+                }
+            }
+            dispatchGroup.leave()
+        }
+        
+        queue2.async(group: dispatchGroup, qos: .userInteractive) { // 가장 높은 우선순위
+            dispatchGroup.enter()
+            print("qos: .userInteractive")
+            DispatchQueue.global().async {
+                for index in 10..<20 {
+                    print(index)
+                }
+            }
+            dispatchGroup.leave()
+        }
+        
+        queue3.async(group: dispatchGroup, qos: .default) { // 기본 우선순위
+            dispatchGroup.enter()
+            print("qos: .default")
+            DispatchQueue.global().async {
+                for index in 20..<30 {
+                    print(index)
+                }
+            }
+            dispatchGroup.leave()
+        }
+        
+        print("action4() 실행 종료")
+        
+    } // button4 action4
     
-}
+} // ViewController
 

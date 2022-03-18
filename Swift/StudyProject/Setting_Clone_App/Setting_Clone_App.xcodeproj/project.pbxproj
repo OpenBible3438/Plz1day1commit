@@ -16,6 +16,8 @@
 		65057AFA27E4C2C900B73022 /* Setting_Clone_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65057AF927E4C2C900B73022 /* Setting_Clone_AppTests.swift */; };
 		65057B0427E4C2C900B73022 /* Setting_Clone_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65057B0327E4C2C900B73022 /* Setting_Clone_AppUITests.swift */; };
 		65057B0627E4C2C900B73022 /* Setting_Clone_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65057B0527E4C2C900B73022 /* Setting_Clone_AppUITestsLaunchTests.swift */; };
+		65057B1D27E4D07300B73022 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65057B1B27E4D07300B73022 /* ProfileCell.swift */; };
+		65057B1E27E4D07300B73022 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65057B1C27E4D07300B73022 /* ProfileCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		65057AFF27E4C2C900B73022 /* Setting_Clone_AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Setting_Clone_AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65057B0327E4C2C900B73022 /* Setting_Clone_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_Clone_AppUITests.swift; sourceTree = "<group>"; };
 		65057B0527E4C2C900B73022 /* Setting_Clone_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_Clone_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		65057B1B27E4D07300B73022 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		65057B1C27E4D07300B73022 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				65057AEB27E4C2C900B73022 /* Assets.xcassets */,
 				65057AED27E4C2C900B73022 /* LaunchScreen.storyboard */,
 				65057AF027E4C2C900B73022 /* Info.plist */,
+				65057B1B27E4D07300B73022 /* ProfileCell.swift */,
+				65057B1C27E4D07300B73022 /* ProfileCell.xib */,
 			);
 			path = Setting_Clone_App;
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65057AEF27E4C2C900B73022 /* LaunchScreen.storyboard in Resources */,
+				65057B1E27E4D07300B73022 /* ProfileCell.xib in Resources */,
 				65057AEC27E4C2C900B73022 /* Assets.xcassets in Resources */,
 				65057AEA27E4C2C800B73022 /* Main.storyboard in Resources */,
 			);
@@ -259,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65057AE727E4C2C800B73022 /* ViewController.swift in Sources */,
+				65057B1D27E4D07300B73022 /* ProfileCell.swift in Sources */,
 				65057AE327E4C2C800B73022 /* AppDelegate.swift in Sources */,
 				65057AE527E4C2C800B73022 /* SceneDelegate.swift in Sources */,
 			);
@@ -445,6 +453,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +463,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -473,6 +482,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,7 +492,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 선언한 TableView 사용을 위한 선언
+        settingTableView.delegate = self
+        settingTableView.dataSource = self
+        
         /*
          추가한 ProfileCell (nib파일) 가져오기(등록).
          storyboard에서 Identifier를 지정할 수 있는데 생성한 이름과 동일하게 짓는 것이 좋음

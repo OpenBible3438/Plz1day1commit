@@ -20,9 +20,15 @@ class ProfileCell: UITableViewCell {
         
         let profileImageViewHeight: CGFloat = 60
         // .layer.cornerRadius - 곡률 표현
-        // 높이/2 하면 원형 다음어짐
+        // 높이/2 하면 웒
         profileImageView.layer.cornerRadius = profileImageViewHeight/2
         
+        /*
+         스토리보드에 있는 요소를 코드로 구현할 때,
+         처음 선언했던 참조는 그대로 남아있어서
+         이름을 변경하거나 코드를 삭제 했을 때 오류가 날 수 있다.
+         스토리보드 상에서 참조된 것을 삭제해야 제대로 삭제된 것 !!
+         */
         topTitle.textColor = .blue
         topTitle.font = UIFont.systemFont(ofSize: 20)
         

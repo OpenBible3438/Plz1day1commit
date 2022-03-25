@@ -20,6 +20,7 @@
 		65057B1E27E4D07300B73022 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65057B1C27E4D07300B73022 /* ProfileCell.xib */; };
 		65994B9827ECA6ED0054B3A4 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65994B9627ECA6ED0054B3A4 /* MenuCell.swift */; };
 		65994B9927ECA6ED0054B3A4 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65994B9727ECA6ED0054B3A4 /* MenuCell.xib */; };
+		65994B9B27EE0C7D0054B3A4 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65994B9A27EE0C7D0054B3A4 /* SettingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		65057B1C27E4D07300B73022 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		65994B9627ECA6ED0054B3A4 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		65994B9727ECA6ED0054B3A4 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		65994B9A27EE0C7D0054B3A4 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				65057AE227E4C2C800B73022 /* AppDelegate.swift */,
 				65057AE427E4C2C800B73022 /* SceneDelegate.swift */,
 				65057AE627E4C2C800B73022 /* ViewController.swift */,
+				65994B9A27EE0C7D0054B3A4 /* SettingModel.swift */,
 				65994B9627ECA6ED0054B3A4 /* MenuCell.swift */,
 				65994B9727ECA6ED0054B3A4 /* MenuCell.xib */,
 				65057AE827E4C2C800B73022 /* Main.storyboard */,
@@ -274,6 +277,7 @@
 			files = (
 				65057AE727E4C2C800B73022 /* ViewController.swift in Sources */,
 				65994B9827ECA6ED0054B3A4 /* MenuCell.swift in Sources */,
+				65994B9B27EE0C7D0054B3A4 /* SettingModel.swift in Sources */,
 				65057B1D27E4D07300B73022 /* ProfileCell.swift in Sources */,
 				65057AE327E4C2C800B73022 /* AppDelegate.swift in Sources */,
 				65057AE527E4C2C800B73022 /* SceneDelegate.swift in Sources */,

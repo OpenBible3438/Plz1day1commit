@@ -8,8 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // SettingModel
+    var settingModel = [[SettingModel]]()
 
     @IBOutlet weak var settingTableView: UITableView!
+    
+    func makeData() {
+        // 초기값 설정
+        SettingModel(leftImageName: <#T##String#>, menuTitle: <#T##String#>, subTitle: <#T##String?#>, rightImageName: <#T##String?#>)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

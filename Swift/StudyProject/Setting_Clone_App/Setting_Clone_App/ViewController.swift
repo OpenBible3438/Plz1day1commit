@@ -20,6 +20,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var settingTableView: UITableView!
     
+    // App Main Color
+    let appMainColor:UIColor = UIColor(red: 0.004, green: 0.118, blue: 0.220, alpha: 1.000)
+    let appBackgrountColor: UIColor = UIColor(red: 0.835, green: 0.851, blue: 0.878, alpha: 1.000)
+    
     func makeData() {
         // Section 1
         settingModel.append(
@@ -54,6 +58,11 @@ class ViewController: UIViewController {
         
         // TableView 배경색 변경
         settingTableView.backgroundColor = UIColor(red: 0.835, green: 0.851, blue: 0.878, alpha: 1.000)
+        
+        // 3/30 Navigation Controller
+        self.title = "Settings"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = appBackgrountColor
         
         makeData()
         

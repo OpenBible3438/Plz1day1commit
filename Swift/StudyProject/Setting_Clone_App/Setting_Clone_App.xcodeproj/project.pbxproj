@@ -18,6 +18,9 @@
 		65057B0627E4C2C900B73022 /* Setting_Clone_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65057B0527E4C2C900B73022 /* Setting_Clone_AppUITestsLaunchTests.swift */; };
 		65057B1D27E4D07300B73022 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65057B1B27E4D07300B73022 /* ProfileCell.swift */; };
 		65057B1E27E4D07300B73022 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65057B1C27E4D07300B73022 /* ProfileCell.xib */; };
+		654FBD8427F5CBEF009C106E /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FBD8327F5CBEF009C106E /* GeneralViewController.swift */; };
+		654FBD8627F5CC6F009C106E /* GeneralViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654FBD8527F5CC6F009C106E /* GeneralViewController.storyboard */; };
+		654FBD8827F5FDF1009C106E /* CommonProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FBD8727F5FDF1009C106E /* CommonProperty.swift */; };
 		65994B9827ECA6ED0054B3A4 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65994B9627ECA6ED0054B3A4 /* MenuCell.swift */; };
 		65994B9927ECA6ED0054B3A4 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65994B9727ECA6ED0054B3A4 /* MenuCell.xib */; };
 		65994B9B27EE0C7D0054B3A4 /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65994B9A27EE0C7D0054B3A4 /* SettingModel.swift */; };
@@ -56,6 +59,9 @@
 		65057B0527E4C2C900B73022 /* Setting_Clone_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting_Clone_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		65057B1B27E4D07300B73022 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		65057B1C27E4D07300B73022 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		654FBD8327F5CBEF009C106E /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
+		654FBD8527F5CC6F009C106E /* GeneralViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeneralViewController.storyboard; sourceTree = "<group>"; };
+		654FBD8727F5FDF1009C106E /* CommonProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonProperty.swift; sourceTree = "<group>"; };
 		65994B9627ECA6ED0054B3A4 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		65994B9727ECA6ED0054B3A4 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		65994B9A27EE0C7D0054B3A4 /* SettingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
@@ -121,6 +127,9 @@
 				65057AF027E4C2C900B73022 /* Info.plist */,
 				65057B1B27E4D07300B73022 /* ProfileCell.swift */,
 				65057B1C27E4D07300B73022 /* ProfileCell.xib */,
+				654FBD8327F5CBEF009C106E /* GeneralViewController.swift */,
+				654FBD8527F5CC6F009C106E /* GeneralViewController.storyboard */,
+				654FBD8727F5FDF1009C106E /* CommonProperty.swift */,
 			);
 			path = Setting_Clone_App;
 			sourceTree = "<group>";
@@ -246,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654FBD8627F5CC6F009C106E /* GeneralViewController.storyboard in Resources */,
 				65057AEF27E4C2C900B73022 /* LaunchScreen.storyboard in Resources */,
 				65057B1E27E4D07300B73022 /* ProfileCell.xib in Resources */,
 				65994B9927ECA6ED0054B3A4 /* MenuCell.xib in Resources */,
@@ -276,9 +286,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				65057AE727E4C2C800B73022 /* ViewController.swift in Sources */,
+				654FBD8427F5CBEF009C106E /* GeneralViewController.swift in Sources */,
 				65994B9827ECA6ED0054B3A4 /* MenuCell.swift in Sources */,
 				65994B9B27EE0C7D0054B3A4 /* SettingModel.swift in Sources */,
 				65057B1D27E4D07300B73022 /* ProfileCell.swift in Sources */,
+				654FBD8827F5FDF1009C106E /* CommonProperty.swift in Sources */,
 				65057AE327E4C2C800B73022 /* AppDelegate.swift in Sources */,
 				65057AE527E4C2C800B73022 /* SceneDelegate.swift in Sources */,
 			);

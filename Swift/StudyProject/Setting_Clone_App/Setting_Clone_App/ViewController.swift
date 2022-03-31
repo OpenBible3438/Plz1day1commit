@@ -38,6 +38,20 @@ class ViewController: UIViewController {
         )
     }
     
+    /*
+     GeneralViewController에서 Navigation 옵션을 줘서
+     여기 화면에서도 Title 글자가 사라지는 현상이 있음
+     viewDidLoad()는 한 번 실행되기 때문에 다른 곳에서 어떤 설정이 바뀌면 그대로 따라가게 됨.
+     다시 이 화면에 왔을 때 Title이 보여지도록 해야되는 코드 추가
+     */
+    // 화면이 나올 때 호출되는 함수
+    override func viewWillAppear(_ animated: Bool) {
+        /* GeneralViewController에서 이 기능 false로 했기 때문에
+            다시 이 화면에 왔을 때 true 해줘야 됨. !
+         */
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,6 +89,37 @@ class ViewController: UIViewController {
  TableView Protocol
  */
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    /*
+     didSelectRowAt
+     row 눌렀을 때
+     */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // General row 조건
+        if indexPath.section == 1 && indexPath.row == 0 {
+            
+            // Storyboard에서 id를 지정할 수 있음
+            /*
+             UIStoryboard(name: "GeneralViewController") 이 이름으로 된 Storyboard에서
+             instantiateViewController(withIdentifier: "GeneralViewController")이 id 찾음
+             */
+            if let generalVC = UIStoryboard(name: "GeneralViewController", bundle: nil).instantiateViewController(withIdentifier: "GeneralViewController") as? GeneralViewController {
+                /*
+                 그냥 let 으로 선언하면 as! GeneralViewController 느낌표로 써서 강제적으로 타입을 지정하게 된다.
+                 강제적으로 하기 싫으면 if let ~~ as? 로 해서 타입이 지정될 수 있는 경우의 코드를 작성
+                 */
+                
+                /*
+                 Main 화면을 Navigation Controller로 생성했다.
+                 그럼 화면 이동했을 때 Navigation Controller에서 제공해주는 방식을 사용할 수 있다.
+                 */
+                self.navigationController?.pushViewController(generalVC, animated: true)
+            }
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // numberOfRowsInSection는 몇 개의 cell을 구현할지를 나타내줘야 한다.

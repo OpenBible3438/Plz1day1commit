@@ -96,8 +96,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        // Apple ID 입력 row
+        if indexPath.section == 0 && indexPath.row == 0 {
+            // 화면을 xib 파일로 만들었기 때문에 코드 내에서 연결.
+            let myidVC = MyIDViewController(nibName: "MyIDViewController", bundle: nil)
+            
+            self.present(myidVC, animated: true, completion: nil)
+        }
+        
         // General row 조건
-        if indexPath.section == 1 && indexPath.row == 0 {
+        else if indexPath.section == 1 && indexPath.row == 0 {
             
             // Storyboard에서 id를 지정할 수 있음
             /*

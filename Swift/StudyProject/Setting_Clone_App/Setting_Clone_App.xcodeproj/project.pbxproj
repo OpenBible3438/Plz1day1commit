@@ -21,6 +21,8 @@
 		654FBD8427F5CBEF009C106E /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FBD8327F5CBEF009C106E /* GeneralViewController.swift */; };
 		654FBD8627F5CC6F009C106E /* GeneralViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654FBD8527F5CC6F009C106E /* GeneralViewController.storyboard */; };
 		654FBD8827F5FDF1009C106E /* CommonProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FBD8727F5FDF1009C106E /* CommonProperty.swift */; };
+		656AB96427FB3A7400C14302 /* AppleIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AB96227FB3A7400C14302 /* AppleIDViewController.swift */; };
+		656AB96527FB3A7400C14302 /* AppleIDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656AB96327FB3A7400C14302 /* AppleIDViewController.xib */; };
 		6581FA1727F9CAB2001B8802 /* MyIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6581FA1527F9CAB2001B8802 /* MyIDViewController.swift */; };
 		6581FA1827F9CAB2001B8802 /* MyIDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6581FA1627F9CAB2001B8802 /* MyIDViewController.xib */; };
 		65994B9827ECA6ED0054B3A4 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65994B9627ECA6ED0054B3A4 /* MenuCell.swift */; };
@@ -64,6 +66,8 @@
 		654FBD8327F5CBEF009C106E /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
 		654FBD8527F5CC6F009C106E /* GeneralViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeneralViewController.storyboard; sourceTree = "<group>"; };
 		654FBD8727F5FDF1009C106E /* CommonProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonProperty.swift; sourceTree = "<group>"; };
+		656AB96227FB3A7400C14302 /* AppleIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleIDViewController.swift; sourceTree = "<group>"; };
+		656AB96327FB3A7400C14302 /* AppleIDViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppleIDViewController.xib; sourceTree = "<group>"; };
 		6581FA1527F9CAB2001B8802 /* MyIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIDViewController.swift; sourceTree = "<group>"; };
 		6581FA1627F9CAB2001B8802 /* MyIDViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyIDViewController.xib; sourceTree = "<group>"; };
 		65994B9627ECA6ED0054B3A4 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				654FBD8727F5FDF1009C106E /* CommonProperty.swift */,
 				6581FA1527F9CAB2001B8802 /* MyIDViewController.swift */,
 				6581FA1627F9CAB2001B8802 /* MyIDViewController.xib */,
+				656AB96227FB3A7400C14302 /* AppleIDViewController.swift */,
+				656AB96327FB3A7400C14302 /* AppleIDViewController.xib */,
 			);
 			path = Setting_Clone_App;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656AB96527FB3A7400C14302 /* AppleIDViewController.xib in Resources */,
 				654FBD8627F5CC6F009C106E /* GeneralViewController.storyboard in Resources */,
 				65057AEF27E4C2C900B73022 /* LaunchScreen.storyboard in Resources */,
 				65057B1E27E4D07300B73022 /* ProfileCell.xib in Resources */,
@@ -296,6 +303,7 @@
 				654FBD8427F5CBEF009C106E /* GeneralViewController.swift in Sources */,
 				6581FA1727F9CAB2001B8802 /* MyIDViewController.swift in Sources */,
 				65994B9827ECA6ED0054B3A4 /* MenuCell.swift in Sources */,
+				656AB96427FB3A7400C14302 /* AppleIDViewController.swift in Sources */,
 				65994B9B27EE0C7D0054B3A4 /* SettingModel.swift in Sources */,
 				65057B1D27E4D07300B73022 /* ProfileCell.swift in Sources */,
 				654FBD8827F5FDF1009C106E /* CommonProperty.swift in Sources */,

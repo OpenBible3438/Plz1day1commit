@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppleIDViewController" customModule="Setting_Clone_App" customModuleProvider="target">
+            <connections>
+                <outlet property="emailTextField" destination="Kwt-qa-Aau" id="Jdt-0U-ijd"/>
+                <outlet property="nextButton" destination="izB-3j-hEx" id="B3x-F2-Nsx"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtO-A1-naC">
+                    <rect key="frame" x="20" y="64" width="69" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                    <connections>
+                        <action selector="doCancel:" destination="-1" eventType="touchUpInside" id="TDm-7f-TRm"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izB-3j-hEx">
+                    <rect key="frame" x="340" y="64" width="54" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Next"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEN-7E-1wX">
+                    <rect key="frame" x="138" y="114" width="138.5" height="45.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with your Apple ID to use iCloud and other Apple services." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVr-ed-48c">
+                    <rect key="frame" x="20" y="169.5" width="374" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AppleID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGc-er-lLe">
+                    <rect key="frame" x="20" y="270.5" width="61" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kwt-qa-Aau">
+                    <rect key="frame" x="91" y="270.5" width="303" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9SS-93-AhM">
+                    <rect key="frame" x="0.0" y="249.5" width="414" height="1"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="HCJ-6p-zyj"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ocw-Xv-4D1">
+                    <rect key="frame" x="0.0" y="311" width="414" height="1"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="1I6-AY-Itr"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kwt-qa-Aau" secondAttribute="trailing" constant="20" id="0DN-In-2ZS"/>
+                <constraint firstItem="izB-3j-hEx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="0kb-uY-cbS"/>
+                <constraint firstItem="Ocw-Xv-4D1" firstAttribute="top" secondItem="qGc-er-lLe" secondAttribute="bottom" constant="20" id="3JM-j7-ich"/>
+                <constraint firstItem="Kwt-qa-Aau" firstAttribute="centerY" secondItem="qGc-er-lLe" secondAttribute="centerY" id="42Q-gs-y9r"/>
+                <constraint firstItem="vVr-ed-48c" firstAttribute="top" secondItem="xEN-7E-1wX" secondAttribute="bottom" constant="10" id="52E-BO-Hxr"/>
+                <constraint firstItem="ZtO-A1-naC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="9Ng-mB-68I"/>
+                <constraint firstAttribute="trailing" secondItem="Ocw-Xv-4D1" secondAttribute="trailing" id="Jnt-7R-Mp3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vVr-ed-48c" secondAttribute="trailing" constant="20" id="Jph-Xy-gRe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="izB-3j-hEx" secondAttribute="trailing" constant="20" id="MCb-5Z-2uZ"/>
+                <constraint firstItem="qGc-er-lLe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="MM8-H8-igE"/>
+                <constraint firstItem="xEN-7E-1wX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Pdj-6M-kgG"/>
+                <constraint firstItem="9SS-93-AhM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QX7-SD-je1"/>
+                <constraint firstItem="ZtO-A1-naC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="RSh-V2-9iC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9SS-93-AhM" secondAttribute="trailing" id="b7d-c2-1Ro"/>
+                <constraint firstItem="Ocw-Xv-4D1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bAN-2U-eud"/>
+                <constraint firstItem="Kwt-qa-Aau" firstAttribute="top" secondItem="vVr-ed-48c" secondAttribute="bottom" constant="60" id="pVq-B7-kdD"/>
+                <constraint firstItem="xEN-7E-1wX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="qm8-3B-gbN"/>
+                <constraint firstItem="qGc-er-lLe" firstAttribute="top" secondItem="vVr-ed-48c" secondAttribute="bottom" constant="60" id="vQP-Li-eZF"/>
+                <constraint firstItem="qGc-er-lLe" firstAttribute="top" secondItem="9SS-93-AhM" secondAttribute="bottom" constant="20" id="yAG-n1-gI2"/>
+                <constraint firstItem="Kwt-qa-Aau" firstAttribute="leading" secondItem="qGc-er-lLe" secondAttribute="trailing" constant="10" id="yt2-QI-5q1"/>
+                <constraint firstItem="vVr-ed-48c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="zRF-rb-Q3l"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

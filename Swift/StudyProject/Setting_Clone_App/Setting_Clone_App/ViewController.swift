@@ -96,12 +96,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        // cell 눌렀을 때 선택된 표시 없애기
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         // Apple ID 입력 row
         if indexPath.section == 0 && indexPath.row == 0 {
             // 화면을 xib 파일로 만들었기 때문에 코드 내에서 연결.
-            let myidVC = MyIDViewController(nibName: "MyIDViewController", bundle: nil)
+            // let myidVC = MyIDViewController(nibName: "MyIDViewController", bundle: nil)
+            // self.present(myidVC, animated: true, completion: nil)
             
-            self.present(myidVC, animated: true, completion: nil)
+            let appleIdVC = AppleIDViewController(nibName: "AppleIDViewController", bundle: nil)
+            self.present(appleIdVC, animated: true, completion: nil)
+            
         }
         
         // General row 조건

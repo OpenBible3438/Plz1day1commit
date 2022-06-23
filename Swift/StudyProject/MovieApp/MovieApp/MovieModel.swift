@@ -15,5 +15,19 @@ struct MovieModel: Codable {
 struct Result: Codable {
     let trackName: String
     let previewUrl: String
-    let artworkUrl100: String
+    let image: String
+    let shortDescription: String?
+    let longDescription: String
+    let trackPrice: Double
+    let currency: String
+    
+    enum CodingKeys: String, CodingKey {
+        case image = "artworkUrl100"
+        case trackName
+        case previewUrl
+        case shortDescription
+        case longDescription
+        case trackPrice
+        case currency
+    }
 }

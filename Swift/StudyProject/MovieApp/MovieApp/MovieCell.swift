@@ -22,6 +22,7 @@ class MovieCell: UITableViewCell {
     }
     @IBOutlet weak var descriptionLabel: UILabel! {
         didSet {
+            
             descriptionLabel.font = .systemFont(ofSize: 13, weight: .light)
         }
     }

@@ -25,7 +25,32 @@ class ViewController: UIViewController {
         
     }
     
-    // network
+    // Image Data
+    func loadImage(urlString: String, completion: @escaping (UIImage?) -> Void ) {
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig)
+        
+        if let hasURL = URL(string: urlString) {
+            var request = URLRequest(url: hasURL)
+            request.httpMethod = "GET"
+            
+            session.dataTask(with: request) { data, response, error in
+                print( (response as! HTTPURLResponse).statusCode )
+                
+                if let hasData = data {
+                    completion(UIImage(data: hasData))
+                    return
+                }
+            }.resume()
+            session.finishTasksAndInvalidate()
+        }
+        
+        // data를 제어하는 로직을 타지 않았을 경우
+        completion(nil)
+        
+    }
+    
+    // network API 데이터 받아오기
     func requestMovieAPI() {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
@@ -80,6 +105,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return self.movieModel?.results.count ?? 0
     }
     
+    // Cell의 높이를 지정하는 override 메소드
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // return 150
+        
+        // contents의 크기만큼 높이를 자동지정
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 사용할 cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
@@ -91,6 +124,28 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let price = self.movieModel?.results[indexPath.row].trackPrice.description ?? ""
         cell.priceLabel.text = currency + price
         
+        // image 추가
+        if let hasURL = self.movieModel?.results[indexPath.row].image {
+            self.loadImage(urlString: hasURL) { image in
+                DispatchQueue.main.async {
+                    cell.movieImageView.image = image
+                }
+            }
+        }
+        
+        if let dateString = self.movieModel?.results[indexPath.row].releaseDate {
+            let formatter = ISO8601DateFormatter()
+            if let isoDate = formatter.date(from: dateString) {
+                
+                let myFormatter = DateFormatter()
+                myFormatter.dateFormat = "yyyy년 MM월 dd일"
+                let dateString = myFormatter.string(from: isoDate)
+                
+                cell.dateLabel.text = dateString
+                
+            }
+            
+        }
         
         
         return cell

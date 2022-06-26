@@ -52,7 +52,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-9e-Eay">
-                                                    <rect key="frame" x="100" y="107" width="294" height="21"/>
+                                                    <rect key="frame" x="100" y="97" width="294" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                                 <constraint firstItem="RKC-5v-Dhh" firstAttribute="top" secondItem="Rjs-eH-sv1" secondAttribute="top" constant="5" id="7z3-fS-qaq"/>
                                                 <constraint firstItem="rha-6U-euW" firstAttribute="leading" secondItem="gRZ-c2-8Xb" secondAttribute="trailing" constant="5" id="FG6-ml-N6c"/>
                                                 <constraint firstItem="EgU-9e-Eay" firstAttribute="leading" secondItem="gRZ-c2-8Xb" secondAttribute="trailing" constant="5" id="PvT-CA-nfE"/>
-                                                <constraint firstAttribute="bottom" secondItem="EgU-9e-Eay" secondAttribute="bottom" constant="5" id="QWE-kk-2z3"/>
+                                                <constraint firstAttribute="bottom" secondItem="EgU-9e-Eay" secondAttribute="bottom" constant="15" id="QWE-kk-2z3"/>
                                                 <constraint firstItem="jLj-Zn-fu2" firstAttribute="leading" secondItem="gRZ-c2-8Xb" secondAttribute="trailing" constant="5" id="SkM-AB-dDH"/>
                                                 <constraint firstItem="jLj-Zn-fu2" firstAttribute="top" secondItem="RKC-5v-Dhh" secondAttribute="bottom" constant="5" id="Sqa-k7-CPU"/>
                                                 <constraint firstItem="gRZ-c2-8Xb" firstAttribute="top" secondItem="Rjs-eH-sv1" secondAttribute="top" constant="5" id="awV-lD-e4O"/>

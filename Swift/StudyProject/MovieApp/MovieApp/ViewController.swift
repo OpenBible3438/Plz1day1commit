@@ -151,6 +151,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    // Cell을 클릭했을 때의 이벤트 메소드
+    // didSelectRowAt
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // DetailController 연결
+        let detailVC = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateViewController(identifier: "DetailViewController") as! DetailViewController
+        
+        self.present(detailVC, animated: true) {
+            detailVC.movieResult = self.movieModel?.results[indexPath.row]
+        }
+        
+    }
+    
     
 }
 

@@ -9,10 +9,10 @@ import Foundation
 
 struct MovieModel: Codable {
     let resultCount: Int
-    let results: [Result] // struct Result를 담는 Array
+    let results: [MovieResult] // struct Result를 담는 Array
 }
 
-struct Result: Codable {
+struct MovieResult: Codable {
     let trackName: String
     let previewUrl: String
     let image: String

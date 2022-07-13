@@ -10,12 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     // DATA MODEL
-    var movieResult: MovieResult? {
-        didSet {
-            titleLabel.text = movieResult?.trackName
-            descriptionLabel.text = movieResult?.longDescription
-        }
-    }
+    var movieResult: MovieResult?
 
     // 영상을 담을 View
     @IBOutlet weak var movieContainer: UIView!
@@ -32,8 +27,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        titleLabel.text = movieResult?.trackName
+        descriptionLabel.text = movieResult?.longDescription
+        
     }
     
 

@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dba-dx-Kpw"/>
-                                    <barButtonItem title="추가" id="FxS-37-RF5">
+                                    <barButtonItem title="추가" image="plus" catalog="system" id="FxS-37-RF5">
                                         <connections>
                                             <action selector="addList:" destination="BYZ-38-t0r" id="ujq-EV-gi4"/>
                                         </connections>
@@ -29,25 +29,80 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="yv5-YH-Mep"/>
                                 </items>
                             </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ2-Fy-MT7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoListCell" rowHeight="73" id="inF-vh-biO" customClass="ToDoListCell" customModule="ToDoAppTEST" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="inF-vh-biO" id="cVq-tn-UKh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ng-XH-QbW">
+                                                    <rect key="frame" x="20" y="21" width="45.5" height="31"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="checkmark.square" catalog="system" title=""/>
+                                                    <connections>
+                                                        <action selector="checkBtnAction:" destination="inF-vh-biO" eventType="touchUpInside" id="qd9-67-Zgj"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="contents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMa-EF-0YB">
+                                                    <rect key="frame" x="70.5" y="26" width="67" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAd-rp-WIR">
+                                                    <rect key="frame" x="360" y="42" width="34" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="sAd-rp-WIR" secondAttribute="bottom" constant="10" id="0xu-AV-jLJ"/>
+                                                <constraint firstItem="fMa-EF-0YB" firstAttribute="centerY" secondItem="cVq-tn-UKh" secondAttribute="centerY" id="33M-f3-XpW"/>
+                                                <constraint firstItem="0Ng-XH-QbW" firstAttribute="leading" secondItem="cVq-tn-UKh" secondAttribute="leading" constant="20" id="YEC-5y-H7n"/>
+                                                <constraint firstItem="fMa-EF-0YB" firstAttribute="leading" secondItem="0Ng-XH-QbW" secondAttribute="trailing" constant="5" id="l6M-nq-iYN"/>
+                                                <constraint firstAttribute="trailing" secondItem="sAd-rp-WIR" secondAttribute="trailing" constant="20" id="nJh-XZ-GCt"/>
+                                                <constraint firstItem="0Ng-XH-QbW" firstAttribute="centerY" secondItem="cVq-tn-UKh" secondAttribute="centerY" id="sfa-qA-AfH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chkBtn" destination="0Ng-XH-QbW" id="BTP-d3-0Vy"/>
+                                            <outlet property="contLabel" destination="fMa-EF-0YB" id="N9Z-E7-YkJ"/>
+                                            <outlet property="dateLabel" destination="sAd-rp-WIR" id="z6W-pe-0yz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZZ2-Fy-MT7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CRT-SR-N1A"/>
+                            <constraint firstItem="ZZ2-Fy-MT7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KAv-8d-5WR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZZ2-Fy-MT7" secondAttribute="trailing" id="MEM-67-wfQ"/>
                             <constraint firstItem="1gq-QZ-RVb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ug3-z4-Mdp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1gq-QZ-RVb" secondAttribute="bottom" id="Vqp-Xn-grH"/>
+                            <constraint firstItem="1gq-QZ-RVb" firstAttribute="top" secondItem="ZZ2-Fy-MT7" secondAttribute="bottom" id="hPT-8c-NLj"/>
                             <constraint firstItem="1gq-QZ-RVb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="peC-oR-lbB"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addListBtn" destination="FxS-37-RF5" id="gaB-xj-Tcp"/>
+                        <outlet property="todoTableView" destination="ZZ2-Fy-MT7" id="usL-QO-x80"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="116"/>
+            <point key="canvasLocation" x="82.608695652173921" y="115.84821428571428"/>
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

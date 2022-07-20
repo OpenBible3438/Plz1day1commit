@@ -16,6 +16,7 @@
 		653308F82888322600B6A014 /* ToDoAppTESTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653308F72888322600B6A014 /* ToDoAppTESTTests.swift */; };
 		653309022888322600B6A014 /* ToDoAppTESTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653309012888322600B6A014 /* ToDoAppTESTUITests.swift */; };
 		653309042888322600B6A014 /* ToDoAppTESTUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653309032888322600B6A014 /* ToDoAppTESTUITestsLaunchTests.swift */; };
+		653309172888494400B6A014 /* ToDoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653309162888494400B6A014 /* ToDoListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		653308FD2888322600B6A014 /* ToDoAppTESTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoAppTESTUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653309012888322600B6A014 /* ToDoAppTESTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoAppTESTUITests.swift; sourceTree = "<group>"; };
 		653309032888322600B6A014 /* ToDoAppTESTUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoAppTESTUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		653309162888494400B6A014 /* ToDoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				653308E02888322500B6A014 /* AppDelegate.swift */,
+				653309162888494400B6A014 /* ToDoListCell.swift */,
 				653308E22888322500B6A014 /* SceneDelegate.swift */,
 				653308E42888322500B6A014 /* ViewController.swift */,
 				653308E62888322500B6A014 /* Main.storyboard */,
@@ -261,6 +264,7 @@
 				653308E52888322500B6A014 /* ViewController.swift in Sources */,
 				653308E12888322500B6A014 /* AppDelegate.swift in Sources */,
 				653308E32888322500B6A014 /* SceneDelegate.swift in Sources */,
+				653309172888494400B6A014 /* ToDoListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

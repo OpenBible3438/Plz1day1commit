@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var movieTableView: UITableView!
     
+    var term = "" // 검색
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,7 +59,7 @@ class ViewController: UIViewController {
         
         var components = URLComponents(string: "https://itunes.apple.com/search")
         
-        let term = URLQueryItem(name: "term", value: "marvel")
+        let term = URLQueryItem(name: "term", value: term)
         let media = URLQueryItem(name: "media", value: "movie")
         
         components?.queryItems = [term, media]
@@ -168,7 +170,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ViewController: UISearchBarDelegate {
+    // 하단에서 키보드가 올라오고 검색 버튼을 눌렀을 때 실행되는 메소드
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        // searchBar.text 값이 없으면(nil) return
+        guard let hasText = searchBar.text else {
+            return
+        }
+        
+        // 값이 있으면
+        term = hasText
+        requestMovieAPI()
     }
 }

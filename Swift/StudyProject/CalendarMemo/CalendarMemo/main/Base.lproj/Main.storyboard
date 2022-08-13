@@ -45,6 +45,7 @@
                     </view>
                     <connections>
                         <outlet property="calendarView" destination="4q4-pT-xt0" id="iFV-BB-V6q"/>
+                        <outlet property="textView" destination="Ovk-sS-tWp" id="Vm5-YM-KQR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

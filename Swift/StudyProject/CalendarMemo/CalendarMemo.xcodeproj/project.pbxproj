@@ -16,6 +16,9 @@
 		658E8F6128A1417900948DC0 /* CalendarMemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658E8F6028A1417900948DC0 /* CalendarMemoTests.swift */; };
 		658E8F6B28A1417900948DC0 /* CalendarMemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658E8F6A28A1417900948DC0 /* CalendarMemoUITests.swift */; };
 		658E8F6D28A1417900948DC0 /* CalendarMemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658E8F6C28A1417900948DC0 /* CalendarMemoUITestsLaunchTests.swift */; };
+		65E6DC9728B4AAAD00E3F8B8 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 65E6DC9628B4AAAD00E3F8B8 /* FirebaseAnalytics */; };
+		65E6DC9928B4AAAD00E3F8B8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 65E6DC9828B4AAAD00E3F8B8 /* FirebaseFirestore */; };
+		65E6DC9B28B4B3A000E3F8B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65E6DC9A28B4B39F00E3F8B8 /* GoogleService-Info.plist */; };
 		BA48CDBE5E2FD46C902E717A /* Pods_CalendarMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FE3A82E57154C94B1DCF4F /* Pods_CalendarMemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +53,7 @@
 		658E8F6628A1417900948DC0 /* CalendarMemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarMemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		658E8F6A28A1417900948DC0 /* CalendarMemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMemoUITests.swift; sourceTree = "<group>"; };
 		658E8F6C28A1417900948DC0 /* CalendarMemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		65E6DC9A28B4B39F00E3F8B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "CalendarMemo/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99FE3A82E57154C94B1DCF4F /* Pods_CalendarMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalendarMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E35A1DAF23EF513E16364F32 /* Pods-CalendarMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarMemo.release.xcconfig"; path = "Target Support Files/Pods-CalendarMemo/Pods-CalendarMemo.release.xcconfig"; sourceTree = "<group>"; };
 		E72076A5C4265AC57453E2DF /* Pods-CalendarMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarMemo.debug.xcconfig"; path = "Target Support Files/Pods-CalendarMemo/Pods-CalendarMemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,7 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E6DC9728B4AAAD00E3F8B8 /* FirebaseAnalytics in Frameworks */,
 				BA48CDBE5E2FD46C902E717A /* Pods_CalendarMemo.framework in Frameworks */,
+				65E6DC9928B4AAAD00E3F8B8 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +90,7 @@
 		658E8F3D28A1417800948DC0 = {
 			isa = PBXGroup;
 			children = (
+				65E6DC9A28B4B39F00E3F8B8 /* GoogleService-Info.plist */,
 				658E8F4828A1417800948DC0 /* CalendarMemo */,
 				658E8F5F28A1417900948DC0 /* CalendarMemoTests */,
 				658E8F6928A1417900948DC0 /* CalendarMemoUITests */,
@@ -177,6 +184,10 @@
 			dependencies = (
 			);
 			name = CalendarMemo;
+			packageProductDependencies = (
+				65E6DC9628B4AAAD00E3F8B8 /* FirebaseAnalytics */,
+				65E6DC9828B4AAAD00E3F8B8 /* FirebaseFirestore */,
+			);
 			productName = CalendarMemo;
 			productReference = 658E8F4628A1417800948DC0 /* CalendarMemo.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +260,9 @@
 				Base,
 			);
 			mainGroup = 658E8F3D28A1417800948DC0;
+			packageReferences = (
+				65E6DC9528B4AAAD00E3F8B8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 658E8F4728A1417800948DC0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -266,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				658E8F5628A1417900948DC0 /* LaunchScreen.storyboard in Resources */,
+				65E6DC9B28B4B3A000E3F8B8 /* GoogleService-Info.plist in Resources */,
 				658E8F5328A1417900948DC0 /* Assets.xcassets in Resources */,
 				658E8F5128A1417800948DC0 /* Main.storyboard in Resources */,
 			);
@@ -682,6 +697,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		65E6DC9528B4AAAD00E3F8B8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		65E6DC9628B4AAAD00E3F8B8 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65E6DC9528B4AAAD00E3F8B8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		65E6DC9828B4AAAD00E3F8B8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 65E6DC9528B4AAAD00E3F8B8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 658E8F3E28A1417800948DC0 /* Project object */;
 }

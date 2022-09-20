@@ -16,10 +16,11 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
     
     // Text 이벤트
     @IBAction func tapTextView(_ sender: Any) {
-        //print("Tap ! textView")
-        
-        // 메모 작성 화면 이동
-        
+        // 메모 작성 or 편집 화면 이동
+        let writeMemoVC = UIStoryboard(name: "CreateMemoViewController", bundle: nil).instantiateViewController(identifier: "CreateMemoViewController") as! CreateMemoViewController
+        writeMemoVC.modalTransitionStyle = .coverVertical
+        writeMemoVC.modalPresentationStyle = .fullScreen
+        self.present(writeMemoVC, animated: true, completion: nil)
     }
     
     // Firebase

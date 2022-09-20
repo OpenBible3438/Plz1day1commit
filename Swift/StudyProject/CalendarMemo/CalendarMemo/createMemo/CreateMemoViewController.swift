@@ -14,9 +14,23 @@ class CreateMemoViewController: UIViewController {
 
     @IBOutlet weak var memoTextView: UITextView!
     @IBOutlet weak var closeImageView: UIImageView!
+    @IBOutlet weak var topDateLabel: UILabel!
+    
+    var selectedDate: Date! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 화면 상단 Date
+        let topDateFormatter = DateFormatter()
+        topDateFormatter.dateFormat = "yyyy.MM.dd."
+        if selectedDate == nil {
+            // nil인 경우 오늘 날짜
+            let nowDate = Date()
+            topDateLabel.text = topDateFormatter.string(from: nowDate)
+        } else {
+            topDateLabel.text = topDateFormatter.string(from: selectedDate)
+        }
         
         // 키보드 상단 버튼
         addButtonOnKeyboard()

@@ -14,12 +14,15 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
     @IBOutlet weak var calendarView: FSCalendar!
     @IBOutlet weak var contentsText: UITextView!
     
+    var selectedDate: Date! = nil
+    
     // Text 이벤트
     @IBAction func tapTextView(_ sender: Any) {
         // 메모 작성 or 편집 화면 이동
         let writeMemoVC = UIStoryboard(name: "CreateMemoViewController", bundle: nil).instantiateViewController(identifier: "CreateMemoViewController") as! CreateMemoViewController
         writeMemoVC.modalTransitionStyle = .coverVertical
         writeMemoVC.modalPresentationStyle = .fullScreen
+        writeMemoVC.selectedDate = self.selectedDate
         self.present(writeMemoVC, animated: true, completion: nil)
     }
     
@@ -58,9 +61,12 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
     
     // 날짜 선택 이벤트
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        // Firebase 데이터 조회 포맷
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
-        //print(dateFormatter.string(from: date) + " 선택")
+        
+        // 메모 작성 화면으로 보낼 Date
+        selectedDate = date
         
         let selDate = dateFormatter.string(from: date)
         

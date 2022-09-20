@@ -51,6 +51,7 @@
                     <connections>
                         <outlet property="closeImageView" destination="Sl5-5X-6dQ" id="fEg-Nt-dT1"/>
                         <outlet property="memoTextView" destination="GKQ-zU-2y3" id="MeE-cg-BPb"/>
+                        <outlet property="topDateLabel" destination="d64-K8-Fqw" id="EOd-l5-g7U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

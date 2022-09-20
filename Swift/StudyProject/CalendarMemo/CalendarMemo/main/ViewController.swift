@@ -12,7 +12,15 @@ import FirebaseFirestore
 class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
 
     @IBOutlet weak var calendarView: FSCalendar!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var contentsText: UITextView!
+    
+    // Text 이벤트
+    @IBAction func tapTextView(_ sender: Any) {
+        //print("Tap ! textView")
+        
+        // 메모 작성 화면 이동
+        
+    }
     
     // Firebase
     let db = Firestore.firestore()
@@ -20,7 +28,9 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        textView.text = ""
+        
+        contentsText.text = ""
+        
         setCalendarUI()
         
         // 오늘 날짜 String
@@ -36,13 +46,36 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
                 // 해달 날짜의 doc 존재
                 let todayContents = document.data()!["contents"] as! String
                 print(todayContents)
-                self.textView.text = todayContents
+                self.contentsText.text = todayContents
             } else {
                 print("document does not exist")
-                self.textView.text = "작성된 글이 없습니다"
+                self.contentsText.text = "작성된 글이 없습니다"
             }
         }
         
+    }
+    
+    // 날짜 선택 이벤트
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        //print(dateFormatter.string(from: date) + " 선택")
+        
+        let selDate = dateFormatter.string(from: date)
+        
+        // 선택된 날짜 DB 조회
+        let docRef = db.collection("MEMO").document(selDate)
+        docRef.getDocument() { (document, error) in
+            if let document = document, document.exists {
+                // 해달 날짜의 doc 존재
+                let todayContents = document.data()!["contents"] as! String
+                print(todayContents)
+                self.contentsText.text = todayContents
+            } else {
+                print("document does not exist")
+                self.contentsText.text = "작성된 글이 없습니다"
+            }
+        }
     }
     
     
@@ -62,6 +95,9 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
         
         // 오늘의 날짜 색
         self.calendarView.appearance.todayColor = UIColor.blue
+        
+        // 선택된 날짜 색
+        self.calendarView.appearance.selectionColor = UIColor.gray
         
         
         // 헤더
@@ -84,6 +120,5 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
         // 헤더 폰트 색상
         self.calendarView.appearance.headerTitleColor = UIColor.gray
     }
-
 
 }

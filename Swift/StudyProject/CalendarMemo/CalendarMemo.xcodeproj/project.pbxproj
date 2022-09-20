@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6526B80528CDD0CF006FDBFD /* CreateMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6526B80428CDD0CF006FDBFD /* CreateMemoViewController.swift */; };
+		6526B80728CDD21F006FDBFD /* CreateMemoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6526B80628CDD21F006FDBFD /* CreateMemoStoryboard.storyboard */; };
 		658E8F4A28A1417800948DC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658E8F4928A1417800948DC0 /* AppDelegate.swift */; };
 		658E8F4C28A1417800948DC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658E8F4B28A1417800948DC0 /* SceneDelegate.swift */; };
 		658E8F4E28A1417800948DC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658E8F4D28A1417800948DC0 /* ViewController.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6526B80428CDD0CF006FDBFD /* CreateMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMemoViewController.swift; sourceTree = "<group>"; };
+		6526B80628CDD21F006FDBFD /* CreateMemoStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateMemoStoryboard.storyboard; sourceTree = "<group>"; };
 		658E8F4628A1417800948DC0 /* CalendarMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		658E8F4928A1417800948DC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		658E8F4B28A1417800948DC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6526B80328CDCFD4006FDBFD /* createMemo */ = {
+			isa = PBXGroup;
+			children = (
+				6526B80428CDD0CF006FDBFD /* CreateMemoViewController.swift */,
+				6526B80628CDD21F006FDBFD /* CreateMemoStoryboard.storyboard */,
+			);
+			path = createMemo;
+			sourceTree = "<group>";
+		};
 		658E8F3D28A1417800948DC0 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +126,7 @@
 		658E8F4828A1417800948DC0 /* CalendarMemo */ = {
 			isa = PBXGroup;
 			children = (
+				6526B80328CDCFD4006FDBFD /* createMemo */,
 				658E8F7928A1443C00948DC0 /* main */,
 				658E8F4928A1417800948DC0 /* AppDelegate.swift */,
 				658E8F4B28A1417800948DC0 /* SceneDelegate.swift */,
@@ -283,6 +297,7 @@
 				65E6DC9B28B4B3A000E3F8B8 /* GoogleService-Info.plist in Resources */,
 				658E8F5328A1417900948DC0 /* Assets.xcassets in Resources */,
 				658E8F5128A1417800948DC0 /* Main.storyboard in Resources */,
+				6526B80728CDD21F006FDBFD /* CreateMemoStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +366,7 @@
 			files = (
 				658E8F4E28A1417800948DC0 /* ViewController.swift in Sources */,
 				658E8F4A28A1417800948DC0 /* AppDelegate.swift in Sources */,
+				6526B80528CDD0CF006FDBFD /* CreateMemoViewController.swift in Sources */,
 				658E8F4C28A1417800948DC0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

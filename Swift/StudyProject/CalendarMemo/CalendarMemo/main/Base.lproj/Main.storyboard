@@ -24,13 +24,30 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="textView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ovk-sS-tWp">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPG-97-0nD">
                                         <rect key="frame" x="0.0" y="409" width="414" height="409"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hi0-zv-Dr0">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <gestureRecognizers/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="4QT-xR-VIc" appends="YES" id="Fca-6u-xWe"/>
+                                                </connections>
+                                            </textView>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="hi0-zv-Dr0" firstAttribute="leading" secondItem="nPG-97-0nD" secondAttribute="leading" id="B4A-zh-FzS"/>
+                                            <constraint firstAttribute="bottom" secondItem="hi0-zv-Dr0" secondAttribute="bottom" id="H1J-p7-Y1c"/>
+                                            <constraint firstAttribute="trailing" secondItem="hi0-zv-Dr0" secondAttribute="trailing" id="U38-xl-q3B"/>
+                                            <constraint firstItem="hi0-zv-Dr0" firstAttribute="top" secondItem="nPG-97-0nD" secondAttribute="top" id="vij-hH-hNR"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -45,10 +62,15 @@
                     </view>
                     <connections>
                         <outlet property="calendarView" destination="4q4-pT-xt0" id="iFV-BB-V6q"/>
-                        <outlet property="textView" destination="Ovk-sS-tWp" id="Vm5-YM-KQR"/>
+                        <outlet property="contentsText" destination="hi0-zv-Dr0" id="5qY-Hz-kX5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4QT-xR-VIc">
+                    <connections>
+                        <action selector="tapTextView:" destination="BYZ-38-t0r" id="Tuz-8E-z7c"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-104" y="0.0"/>
         </scene>

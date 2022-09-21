@@ -22,7 +22,7 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
         let writeMemoVC = UIStoryboard(name: "CreateMemoViewController", bundle: nil).instantiateViewController(identifier: "CreateMemoViewController") as! CreateMemoViewController
         writeMemoVC.modalTransitionStyle = .coverVertical
         writeMemoVC.modalPresentationStyle = .fullScreen
-        writeMemoVC.selectedDate = self.selectedDate
+        writeMemoVC.selectedDate = self.selectedDate // 메모 작성 화면에 선택한 날짜 data 전달
         self.present(writeMemoVC, animated: true, completion: nil)
     }
     
@@ -55,7 +55,6 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
             if let document = document, document.exists {
                 // 해달 날짜의 doc 존재
                 let todayContents = document.data()!["contents"] as! String
-                print(todayContents)
                 self.contentsText.text = todayContents
             } else {
                 self.contentsText.text = "작성된 글이 없습니다"

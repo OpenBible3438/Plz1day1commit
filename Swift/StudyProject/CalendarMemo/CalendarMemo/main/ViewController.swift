@@ -44,7 +44,13 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
         let todayString = dateFormatter.string(from: nowDate)
         
         // 오늘 날짜에 해당하는 문서 찾기
-        let docRef = db.collection("MEMO").document(todayString)
+        getMemoContents(selectedDate: todayString)
+        
+    }
+    
+    // 해당 날짜에 대한 메모 가져와서 화면에 출력하기
+    func getMemoContents(selectedDate: String) {
+        let docRef = db.collection("MEMO").document(selectedDate)
         docRef.getDocument() { (document, error) in
             if let document = document, document.exists {
                 // 해달 날짜의 doc 존재
@@ -52,11 +58,9 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
                 print(todayContents)
                 self.contentsText.text = todayContents
             } else {
-                print("document does not exist")
                 self.contentsText.text = "작성된 글이 없습니다"
             }
         }
-        
     }
     
     // 날짜 선택 이벤트
@@ -71,18 +75,7 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
         let selDate = dateFormatter.string(from: date)
         
         // 선택된 날짜 DB 조회
-        let docRef = db.collection("MEMO").document(selDate)
-        docRef.getDocument() { (document, error) in
-            if let document = document, document.exists {
-                // 해달 날짜의 doc 존재
-                let todayContents = document.data()!["contents"] as! String
-                print(todayContents)
-                self.contentsText.text = todayContents
-            } else {
-                print("document does not exist")
-                self.contentsText.text = "작성된 글이 없습니다"
-            }
-        }
+        getMemoContents(selectedDate: selDate)
     }
     
     

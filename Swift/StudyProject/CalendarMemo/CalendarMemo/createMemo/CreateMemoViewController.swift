@@ -17,7 +17,13 @@ class CreateMemoViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var closeImageView: UIImageView!
     @IBOutlet weak var topDateLabel: UILabel!
     
+    var mainVC: ViewController?
+    
+    var isWriteMemo: Bool! = false // 텍스트 필드에 메모를 작성했는지 확인
+    var isHaveMemo: Bool! = false // 해당 날짜에 메모가 이미 있는지 확인
+    
     var selectedDate: Date? = nil
+    var yyyyMMddFormatedDate: String! = nil
     
     let db = Firestore.firestore()
     
@@ -62,18 +68,25 @@ class CreateMemoViewController: UIViewController, UITextViewDelegate {
             getMemoDate = getMemoDateFormatter.string(from: selectedDate!)
         }
         
+        // yyyyMMdd 포맷팅한 날짜 전역변수에 담기
+        yyyyMMddFormatedDate = getMemoDate
+        
         let docRef = db.collection("MEMO").document(getMemoDate)
         docRef.getDocument() { (document, error) in
             if let document = document, document.exists {
                 // 메모 존재
                 let getContents = document.data()!["contents"] as! String
                 self.memoTextView.text = getContents
+                
+                self.isHaveMemo = true
             } else {
                 // 메모 없음
                 // PlaceHolder Setting
                 self.memoTextView.delegate = self
                 self.memoTextView.text = "글을 입력해 주세요"
                 self.memoTextView.textColor = UIColor.lightGray
+                
+                self.isHaveMemo = false
             }
         }
     }
@@ -94,7 +107,58 @@ class CreateMemoViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc func writeBtnAction() {
-        print("메모 작성 완료")
+        let docRef = db.collection("MEMO").document(yyyyMMddFormatedDate)
+        let memoContents: String? = memoTextView.text
+        
+        if memoContents == nil || memoContents == "" || memoContents == "글을 입력해 주세요" {
+            isWriteMemo = false
+        } else {
+            isWriteMemo = true
+        }
+        
+        // Firebase 메모 입력하기
+        if isHaveMemo {
+            // 해당 날짜에 이미 메모가 있던 상태 UPDATE
+            if isWriteMemo {
+                // UPDATE
+                docRef.updateData([
+                    "contents" : memoContents ?? ""
+                ]) { err in
+                    if let err = err {
+                        print("ERROR UPDATING DOC : \(err)")
+                        self.closePage()
+                    } else {
+                        print("MEMO UPDATE")
+                        self.mainVC?.contentsText.text = memoContents
+                        self.closePage()
+                    }
+                }
+            } else {
+                // 아무것도 안 작성했으면 해당 날짜 data 삭제
+                
+            }
+        } else {
+            // 해당 날짜에 새로운 메모 INSERT
+            if isWriteMemo {
+                // INSERT
+                docRef.setData([
+                    "date" : yyyyMMddFormatedDate ?? "",
+                    "contents" : memoContents ?? ""
+                ]) { err in
+                    if let err = err {
+                        print("ERROR UPDATING DOC : \(err)")
+                        self.closePage()
+                    } else {
+                        print("MEMO INSERT")
+                        self.mainVC?.contentsText.text = memoContents
+                        self.closePage()
+                    }
+                }
+            } else {
+                // 아무것도 안 작성했으면 화면 닫기
+                closePage()
+            }
+        }
     }
     
     /*
@@ -105,6 +169,8 @@ class CreateMemoViewController: UIViewController, UITextViewDelegate {
         if memoTextView.textColor == UIColor.lightGray {
             memoTextView.text = nil
             memoTextView.textColor = UIColor.black // lightGray였던 글자색 다시 변경
+            
+            isWriteMemo = true
         }
     }
     // TextView Text 입력을 끝냈을 때
@@ -113,6 +179,8 @@ class CreateMemoViewController: UIViewController, UITextViewDelegate {
         if memoTextView.text.isEmpty {
             memoTextView.text = "글을 입력해 주세요"
             memoTextView.textColor = UIColor.lightGray
+            
+            isWriteMemo = false
         }
     }
     

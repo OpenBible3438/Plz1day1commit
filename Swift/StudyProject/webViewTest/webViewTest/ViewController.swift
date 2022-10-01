@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let url = URL(string: "http://localhost:8080/") {
+        if let url = URL(string: "http://m.naver.com/") {
             let request = URLRequest(url: url)
             mainWebview.load(request)
         }

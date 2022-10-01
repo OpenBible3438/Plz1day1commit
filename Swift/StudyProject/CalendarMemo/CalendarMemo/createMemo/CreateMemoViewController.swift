@@ -11,13 +11,18 @@ import FirebaseFirestore
 /*
  메모 작성 화면
  */
+
+protocol ChangeContentsTextView: AnyObject {
+    func changeTextView(changeText: String)
+}
+
 class CreateMemoViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var memoTextView: UITextView!
     @IBOutlet weak var closeImageView: UIImageView!
     @IBOutlet weak var topDateLabel: UILabel!
     
-    var mainVC: ViewController?
+    weak var delegate: ChangeContentsTextView?
     
     var isWriteMemo: Bool! = false // 텍스트 필드에 메모를 작성했는지 확인
     var isHaveMemo: Bool! = false // 해당 날짜에 메모가 이미 있는지 확인
@@ -129,7 +134,7 @@ class CreateMemoViewController: UIViewController, UITextViewDelegate {
                         self.closePage()
                     } else {
                         print("MEMO UPDATE")
-                        self.mainVC?.contentsText.text = memoContents
+                        self.delegate?.changeTextView(changeText: memoContents ?? "")
                         self.closePage()
                     }
                 }
@@ -150,7 +155,6 @@ class CreateMemoViewController: UIViewController, UITextViewDelegate {
                         self.closePage()
                     } else {
                         print("MEMO INSERT")
-                        self.mainVC?.contentsText.text = memoContents
                         self.closePage()
                     }
                 }

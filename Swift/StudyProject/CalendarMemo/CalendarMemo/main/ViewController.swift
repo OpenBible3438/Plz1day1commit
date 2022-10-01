@@ -121,3 +121,10 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
     }
 
 }
+
+extension ViewController: ChangeContentsTextView {
+    func changeTextView(changeText: String) {
+        print("ViewController changeTextView 실행")
+        self.contentsText.text = changeText
+    }
+}

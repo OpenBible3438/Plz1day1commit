@@ -57,10 +57,10 @@ class ViewController: UIViewController {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
         
-        var components = URLComponents(string: "https://itunes.apple.com/search")
+        var components = URLComponents(string: " s://itunes.apple.com/search")
         
         let term = URLQueryItem(name: "term", value: term)
-        let media = URLQueryItem(name: "media", value: "movie")
+        let media = URLQueryItem(name: "media", value: "music")
         
         components?.queryItems = [term, media]
         

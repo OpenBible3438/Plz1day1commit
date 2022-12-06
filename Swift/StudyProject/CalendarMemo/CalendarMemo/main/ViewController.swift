@@ -19,7 +19,7 @@ class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource
     // Text 이벤트
     @IBAction func tapTextView(_ sender: Any) {
         // 메모 작성 or 편집 화면 이동
-        let writeMemoVC = UIStoryboard(name: "CreateMemoViewController", bundle: nil).instantiateViewController(identifier: "CreateMemoViewController") as! CreateMemoViewController
+        (let writeMemoVC = UIStoryboard(name: "CreateMemoViewController", bundle: nil).instantiateViewController(identifier: "CreateMemoViewController") as! CreateMemoViewController)
         writeMemoVC.modalTransitionStyle = .coverVertical
         writeMemoVC.modalPresentationStyle = .fullScreen
         writeMemoVC.selectedDate = self.selectedDate // 메모 작성 화면에 선택한 날짜 data 전달

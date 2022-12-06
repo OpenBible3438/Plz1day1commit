@@ -13,9 +13,11 @@
 		65519556293F552600D4DB86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65519554293F552600D4DB86 /* Main.storyboard */; };
 		65519558293F552700D4DB86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65519557293F552700D4DB86 /* Assets.xcassets */; };
 		6551955B293F552700D4DB86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65519559293F552700D4DB86 /* LaunchScreen.storyboard */; };
+		6A0BA5CDE13372DD6D67179D /* Pods_CymplyLayoutTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1E118FD9D1300F7B9C97F1 /* Pods_CymplyLayoutTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0887C2102BD7E9079D9948BF /* Pods-CymplyLayoutTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CymplyLayoutTest.release.xcconfig"; path = "Target Support Files/Pods-CymplyLayoutTest/Pods-CymplyLayoutTest.release.xcconfig"; sourceTree = "<group>"; };
 		6551954B293F552600D4DB86 /* CymplyLayoutTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CymplyLayoutTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6551954E293F552600D4DB86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65519550293F552600D4DB86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		65519557293F552700D4DB86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6551955A293F552700D4DB86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6551955C293F552700D4DB86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF1E118FD9D1300F7B9C97F1 /* Pods_CymplyLayoutTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CymplyLayoutTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E58FBE361F09BF7D8F27363E /* Pods-CymplyLayoutTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CymplyLayoutTest.debug.xcconfig"; path = "Target Support Files/Pods-CymplyLayoutTest/Pods-CymplyLayoutTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0BA5CDE13372DD6D67179D /* Pods_CymplyLayoutTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		319008E76232D7266A1CE0DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E58FBE361F09BF7D8F27363E /* Pods-CymplyLayoutTest.debug.xcconfig */,
+				0887C2102BD7E9079D9948BF /* Pods-CymplyLayoutTest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		65519542293F552600D4DB86 = {
 			isa = PBXGroup;
 			children = (
 				6551954D293F552600D4DB86 /* CymplyLayoutTest */,
 				6551954C293F552600D4DB86 /* Products */,
+				319008E76232D7266A1CE0DD /* Pods */,
+				F55F918EF83E244926FFF5DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +84,14 @@
 			path = CymplyLayoutTest;
 			sourceTree = "<group>";
 		};
+		F55F918EF83E244926FFF5DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF1E118FD9D1300F7B9C97F1 /* Pods_CymplyLayoutTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6551955F293F552700D4DB86 /* Build configuration list for PBXNativeTarget "CymplyLayoutTest" */;
 			buildPhases = (
+				3581C688AFD01216B31AD99E /* [CP] Check Pods Manifest.lock */,
 				65519547293F552600D4DB86 /* Sources */,
 				65519548293F552600D4DB86 /* Frameworks */,
 				65519549293F552600D4DB86 /* Resources */,
+				45F857BD51B8BA5C8C069DCD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3581C688AFD01216B31AD99E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CymplyLayoutTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45F857BD51B8BA5C8C069DCD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CymplyLayoutTest/Pods-CymplyLayoutTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CymplyLayoutTest/Pods-CymplyLayoutTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CymplyLayoutTest/Pods-CymplyLayoutTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		65519547293F552600D4DB86 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		65519560293F552700D4DB86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E58FBE361F09BF7D8F27363E /* Pods-CymplyLayoutTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -295,6 +365,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,12 +375,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		65519561293F552700D4DB86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0887C2102BD7E9079D9948BF /* Pods-CymplyLayoutTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -323,6 +395,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,7 +405,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
